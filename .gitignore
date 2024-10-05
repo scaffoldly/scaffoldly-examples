@@ -1,0 +1,116 @@
+# Compiled files
+*.dll
+*.exe
+*.so
+*.dylib
+*.pub
+*.out
+
+# Build directories
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+
+# Common auto-generated files
+*.log
+*.vspscc
+*.vssscc
+
+# User-specific files
+.vscode/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# C# specific
+*.pdb
+*.mdb
+*.pidb
+*.opendb
+
+# Rider files
+.idea/
+.idea_modules/
+
+# Visual Studio files
+.vscode/
+.vs/
+.vscode/*
+*.csproj.user
+*.csproj.user.*
+*.pidb
+*.sln.ide.*
+*.cache
+.project
+.settings
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# NUnit
+TestResult.xml
+nunit-*.xml
+TestResult-*.*
+
+# ASP.NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Azure Pipelines
+.azure-pipelines/
+
+# Visual Studio Code workspace settings
+.vscode/
+
+# Local history for IDEs
+.localhistory/
+
+# JetBrains Rider
+.idea/
+.idea_modules/
+.idea_vcs.xml
+.idea/workspace.xml
+
+# macOS
+.DS_Store
+
+# Linux temporary files
+*~
+
+# Log and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Windows
+*.bak
+*.swp
+
+# Include packages directory to avoid re-downloading them
+**/packages/
+
+# Ignore nuget packages
+*.nupkg
+
+# Ignore generated files from SDK or tools
+*.rsuser
+*.suo
+*.user
