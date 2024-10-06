@@ -2,6 +2,7 @@ name: Submodules Maintenance
 
 on:
   workflow_dispatch:
+  push:
   schedule:
     - cron: "0 6 * * *"
 
@@ -20,7 +21,8 @@ jobs:
 
       - name: Update submodules to their latest version
         run: |
-          git submodule update --remote --merge
+          git submodule sync --recursive
+          git submodule update --remote --recursive
           git add .
           git commit -m "Daily update of submodules" || echo "No changes to commit"
 
