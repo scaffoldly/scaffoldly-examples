@@ -2,6 +2,7 @@
 
 This repository contains example usage of the [`scaffoldly`](https://scaffoldly.dev) toolchain.
 
+<!--
 ## Getting Started
 
 > :warning: **UPDATE 2024-10-06**: **`create-scaffoldly-app`**: will be ready in a few days!
@@ -17,6 +18,7 @@ yarn create scaffoldly-app
 ```
 
 Alternatively, browse the various [Frameworks](#frameworks) below and add `scaffoldly` to an existing project manually. See the [docs](https://scaffoldly.dev/docs) for more information.
+-->
 
 ## Frameworks
 
