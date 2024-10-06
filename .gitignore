@@ -1,0 +1,5 @@
+# Node.js Stuff
+node_modules/
+
+# Next.js Stuff
+next-env.d.ts

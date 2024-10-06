@@ -6,9 +6,10 @@ This repository contains example usage of the [`scaffoldly`](https://scaffoldly.
 
 We've create a handful of examples to allow you to use Scaffoldly.
 
-### .NET
-
-- [C# on AWS Lambda](https://github.com/scaffoldly/scaffoldly-examples/tree/dotnet-csharp)
+| Language | Framework | Examples                 |
+| -------- | :-------: | ------------------------ |
+| .NET     |    C#     | [C#](dotnet/csharp)      |
+| Node     |  Next.js  | [`default`](node/nextjs) |
 
 ## Questions, Feedback, and Help
 

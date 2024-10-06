@@ -2,3 +2,7 @@
 	path = dotnet/csharp
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = dotnet-csharp
+[submodule "node/nextjs"]
+	path = node/nextjs
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = node-nextjs
