@@ -12,7 +12,7 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
-[https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)
+[https://jtzom2obx3owx4gn4vluichvze0frzcn.lambda-url.us-east-1.on.aws](https://jtzom2obx3owx4gn4vluichvze0frzcn.lambda-url.us-east-1.on.aws)
 
 ## First, [`next.config.mjs`](next.config.mjs) was updated
 
