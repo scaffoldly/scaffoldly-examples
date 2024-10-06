@@ -13,8 +13,8 @@ We've created a handful of examples to show you how Scaffoldly can be used.
 
 ## Questions, Feedback, and Help
 
-Join our [Discussions](https://github.com/scaffoldly/scaffoldly/discussions) on GitHub.
-Join our [Community](https://scaffoldly.dev/community) on Discord.
+- Join our [Discussions](https://github.com/scaffoldly/scaffoldly/discussions) on GitHub.
+- Join our [Community](https://scaffoldly.dev/community) on Discord.
 
 ## License
 
