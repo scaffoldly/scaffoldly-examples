@@ -1,14 +1,16 @@
 # A C# App Running On AWS Lambda
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=dotnet-csharp&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+
 This application was generated with the following command:
 
 ```bash
 dotnet new webapi -n DotNetCSharpApp
 ```
 
-✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
-
-Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
+- ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
+- 🤯 Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples).
+- 💡 Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
