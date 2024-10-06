@@ -1,4 +1,4 @@
-name: Birth a new Example Branch and Submodule
+name: Birth a new Example
 
 on:
   workflow_dispatch:
