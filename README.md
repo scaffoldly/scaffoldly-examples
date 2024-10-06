@@ -1,12 +1,10 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+# A Connect (ConnectRPC) App Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=node-connect&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
-This application was generated with the following command:
+This application was created by following the following instructions:
 
-```bash
-CHANGEME-CREATECOMMAND
-```
+1. https://connectrpc.com/docs/node/getting-started
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
@@ -14,17 +12,48 @@ Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples
 
 ### Working example
 
-[CHANGEME-URL](CHANGEME-URL)
+[https://adm2n2urfuewyca33xlh3bmlzy0gqsdh.lambda-url.us-east-1.on.aws](https://adm2n2urfuewyca33xlh3bmlzy0gqsdh.lambda-url.us-east-1.on.aws)
+
+And to `curl` using ConnectRPC:
+
+```
+curl \
+  --header 'Content-Type: application/json' \
+  --data '{"sentence": "I feel happy."}' \
+   https://adm2n2urfuewyca33xlh3bmlzy0gqsdh.lambda-url.us-east-1.on.aws/connectrpc.eliza.v1.ElizaService/Say
+```
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
+In the project's [`package.json`](package.json) file, the `scaffoldly` configuration was added:
 
-- Note 1
-- Note 2
+- `files` includes a handful of files to run `tsx server.ts`
+- The `proto` and `buf*.yaml` files can be excluded since those are generated during the development process
 
-```
-CHANGEME-CONFIG
+```json
+  "scaffoldly": {
+    "runtime": "node:22-alpine",
+    "handler": "localhost:8080",
+    "services": [
+      {
+        "name": "connect",
+        "files": [
+          "gen",
+          "node_modules",
+          "client.ts",
+          "connect.ts",
+          "package-lock.json",
+          "package.json",
+          "server.ts",
+          "tsconfig.json"
+        ],
+        "scripts": {
+          "install": "npm install",
+          "start": "tsx server.ts"
+        }
+      }
+    ]
+  }
 ```
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
@@ -41,10 +70,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
+   🆔 App Identity: arn:aws:iam::123456789012:role/connect-dae64702
    📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
+   📦 Image Size: 371.5 MB
+   🌎 URL: https://adm2n2urfuewyca33xlh3bmlzy0gqsdh.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD

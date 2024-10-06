@@ -1,0 +1,39 @@
+{
+  "name": "connect",
+  "version": "1.0.0",
+  "dependencies": {
+    "@bufbuild/buf": "^1.44.0",
+    "@bufbuild/protobuf": "^1.10.0",
+    "@bufbuild/protoc-gen-es": "^1.10.0",
+    "@connectrpc/connect": "^1.5.0",
+    "@connectrpc/connect-fastify": "^1.5.0",
+    "@connectrpc/connect-node": "^1.5.0",
+    "@connectrpc/protoc-gen-connect-es": "^1.5.0",
+    "fastify": "^4.22.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  },
+  "scaffoldly": {
+    "runtime": "node:22-alpine",
+    "handler": "localhost:8080",
+    "services": [
+      {
+        "name": "connect",
+        "files": [
+          "gen",
+          "node_modules",
+          "client.ts",
+          "connect.ts",
+          "package-lock.json",
+          "package.json",
+          "server.ts",
+          "tsconfig.json"
+        ],
+        "scripts": {
+          "install": "npm install",
+          "start": "tsx server.ts"
+        }
+      }
+    ]
+  }
+}

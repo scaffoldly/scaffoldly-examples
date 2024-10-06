@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+lib/
+
+# Generated code (e.g., from Protocol Buffers)
+generated/
+*.pb.ts
+*.pb.js
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Yarn and npm lock files
+yarn.lock
+package-lock.json
+
+# Temp files
+tmp/
+temp/
