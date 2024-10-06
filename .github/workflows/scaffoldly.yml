@@ -3,6 +3,8 @@ name: Scaffoldly Deploy
 on:
   workflow_dispatch:
   push:
+  schedule:
+    - cron: "0 12 * * *"
 
 permissions:
   id-token: write
