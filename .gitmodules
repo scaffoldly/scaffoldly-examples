@@ -22,3 +22,7 @@
 	path = node/react-vite
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = node-react-vite
+[submodule "node/connect"]
+	path = node/connect
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = node-connect
