@@ -114,3 +114,6 @@ artifacts/
 *.rsuser
 *.suo
 *.user
+
+# Scaffoldly Examples
+dotnet/

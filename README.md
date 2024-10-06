@@ -82,7 +82,7 @@ jobs:
           secrets: ${{ toJSON(secrets) }}
 ```
 
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/gha/) for addition GitHub Actions directives.
+See the [Scaffoldly Docs](https://scaffoldly.dev/docs/gha/) for additional GitHub Actions directives.
 
 ## Questions, Feedback, and Help
 
