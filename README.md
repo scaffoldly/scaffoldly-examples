@@ -6,7 +6,7 @@ This repository contains example usage of the [`scaffoldly`](https://scaffoldly.
 
 All of the [Frameworks](#frameworks) below below can be duplicated with the [`create-scaffoldly-app`](https://www.npmjs.com/package/create-scaffoldly-app) utility.
 
-- Having `npm` or `yarn` is necesssary.
+_Note_: Having `npm` or `yarn` installed is necesssary.
 
 ```bash
 npm create scaffoldly-app
