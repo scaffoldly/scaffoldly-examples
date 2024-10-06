@@ -12,8 +12,6 @@ All of the [Frameworks](#frameworks) below below can be duplicated with the [`cr
 npm create scaffoldly-app
 # or
 yarn create scaffoldly-app
-# or
-npx create-scaffoldly-app
 ```
 
 Alternatively, browse the various [Frameworks](#frameworks) below and add `scaffoldly` to an existing project manually. See the [docs](https://scaffoldly.dev/docs) for more information.
