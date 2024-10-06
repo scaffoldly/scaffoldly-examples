@@ -4,7 +4,7 @@ This repository contains example usage of the [`scaffoldly`](https://scaffoldly.
 
 ## Frameworks
 
-We've created a handful of examples to show you how Scaffoldly can be used.
+We've created a handful of examples to show how Scaffoldly can be used.
 
 <!-- Alphbetically Ordered Please!!! -->
 
