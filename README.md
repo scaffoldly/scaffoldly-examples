@@ -4,7 +4,8 @@
 
 This application was created by following the following instructions:
 
-1. https://connectrpc.com/docs/node/getting-started
+1. Connect's [Getting Started](https://connectrpc.com/docs/node/getting-started) guide.
+   - _Skipped_: The steps to make a SSL certificate, since AWS Lambda Function URLs operate over TLS by default.
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
