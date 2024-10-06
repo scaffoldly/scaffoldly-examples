@@ -5,7 +5,7 @@
 This application was created by following the following instructions:
 
 1. Connect's [Getting Started](https://connectrpc.com/docs/go/getting-started) guide.
-   - _Note:_: Used a `module` name of `go-connect` instead of `example`
+   - _Note_: Used a `module` name of `go-connect` instead of `example`
    - _Skipped_: The steps to make a SSL certificate, since AWS Lambda Function URLs operate over TLS by default.
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
