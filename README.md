@@ -1,11 +1,11 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+# A React + Vite App Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=node-react-vite&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
 This application was generated with the following command:
 
 ```bash
-CHANGEME-CREATECOMMAND
+npm create vite@latest -- react-vite --template react-ts
 ```
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
@@ -14,17 +14,37 @@ Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples
 
 ### Working example
 
-[CHANGEME-URL](CHANGEME-URL)
+[https://qgb37tjq2vu4qlejnu2p7zzire0tqtsy.lambda-url.us-east-1.on.aws](https://qgb37tjq2vu4qlejnu2p7zzire0tqtsy.lambda-url.us-east-1.on.aws)
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
+In the project's [`package.json`](package.json) file, the `scaffoldly` configuration was added:
 
-- Note 1
-- Note 2
+- `serve` is installed via `npm`
+- the `start` script uses `serve` to host the `dist` directory created by the `build` script
+- since it's static HTML, only the `dist` and `public` directories are needed
 
-```
-CHANGEME-CONFIG
+```json
+  "scaffoldly": {
+    "runtime": "node:22-alpine",
+    "handler": "localhost:3000",
+    "packages": [
+      "npm:serve"
+    ],
+    "services": [
+      {
+        "files": [
+          "public",
+          "dist"
+        ],
+        "scripts": {
+          "install": "npm ci",
+          "build": "npm run build",
+          "start": "serve dist"
+        }
+      }
+    ]
+  }
 ```
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
@@ -41,10 +61,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
+   🆔 App Identity: arn:aws:iam::123456789012:role/react-vite-82d0e693
    📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
+   📦 Image Size: 196.21 MB
+   🌎 URL: https://qgb37tjq2vu4qlejnu2p7zzire0tqtsy.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
