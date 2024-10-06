@@ -39,21 +39,14 @@ In the project's [`package.json`](package.json) file, the `scaffoldly` configura
   "name": "node-nextjs-export",
   "version": "0.1.0",
   // ... snip ...
-  "scaffoldly":   "scaffoldly": {
+  "scaffoldly": {
     "runtime": "node:22-alpine",
     "handler": "localhost:3000",
-    "packages": [
-      "npm:serve"
-    ],
+    "packages": ["npm:serve"],
     "services": [
       {
         "name": "next",
-        "files": [
-          "package.json",
-          ".next",
-          "out",
-          "package-lock.json"
-        ],
+        "files": ["package.json", ".next", "out", "package-lock.json"],
         "scripts": {
           "install": "npm ci",
           "dev": "next dev",
