@@ -1,9 +1,9 @@
-# A Next.js App Running On AWS Lambda
+# A Next.js App Running On AWS Lambda (`standalone` mode)
 
 This application was generated with the following command:
 
 ```bash
-npx create-next-app@latest node-nextjs
+npx create-next-app@latest node-nextjs-standalone
 ```
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
@@ -14,27 +14,43 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 [https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)
 
-## First, Scaffoldly Config was added...
+## First, [`next.config.mjs`](next.config.mjs) was updated
+
+We've set `output` to be [`standalone`](https://nextjs.org/docs/pages/api-reference/next-config-js/output):
+
+- This compiles a `server.js` which can be run with `node`
+- The `next` binary is no longer needed to start the app
+
+```js
+const nextConfig = {
+  output: "standalone",
+};
+```
+
+## Then, Scaffoldly Config was added...
 
 In the project's [`package.json`](package.json) file, the `scaffoldly` configuration was added:
 
 ```jsonc
 {
-  "name": "node-nextjs",
+  "name": "node-nextjs-standalone",
   "version": "0.1.0",
   // ... snip ...
   "scaffoldly": {
     "runtime": "node:22-alpine",
     "handler": "localhost:3000",
+    "bin": {
+      "server.js": "next:.next/standalone/server.js"
+    },
     "services": [
       {
         "name": "next",
-        "files": ["package.json", ".next", "node_modules", "package-lock.json"],
+        "files": ["package.json", ".next", "package-lock.json"],
         "scripts": {
           "install": "npm ci",
           "dev": "next dev",
           "build": "next build",
-          "start": "next start"
+          "start": "node server.js"
         }
       }
     ]
@@ -56,10 +72,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-740c100e
+   🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-standalone-5d74f9cd
    📄 Env Files: .env.main, .env
-   📦 Image Size: todo MB
-   🌎 URL: https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws
+   📦 Image Size: 662.58 MB
+   🌎 URL: https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
