@@ -1,5 +1,7 @@
 # A Next.js App Running On AWS Lambda (`export` mode)
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=node-nextjs&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+
 This application was generated with the following command:
 
 ```bash
@@ -8,7 +10,7 @@ npx create-next-app@latest node-nextjs-export
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
-Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
+Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
