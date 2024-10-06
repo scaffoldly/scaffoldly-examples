@@ -1,0 +1,94 @@
+name: Birth a new Example Branch and Submodule
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch-name:
+        description: "The name of the new branch (e.g. nodejs/express)"
+        required: true
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  create-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create New Branch
+        run: |
+          git checkout -b ${{ github.event.inputs.branch-name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clear submodules
+        run: |
+          grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git submodule deinit -f {}
+          grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git rm -f {}
+          grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} rm -rf {}
+          git config -f .git/config --remove-section submodule.{}
+          git add .gitmodules
+          git add .
+          git commit -m "Clear submodules" || echo "No changes to commit"
+
+      - name: Clean Directory
+        run: |
+          mv .templates /tmp/.templates
+          rm -fr .github
+          rm .gitignore
+          rm .gitmodules
+          rm README.md
+          git add .
+          git commit -m "Clean directory" || echo "No changes to commit"
+
+      - name: Add Templates
+        run: |
+          mkdir -p .github/workflows
+          cp /tmp/.templates/scaffoldly.yml .github/workflows/scaffoldly.yml
+          cp /tmp/.templates/README.md README.md
+          git add .
+          git commit -m "Initialize Template" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push origin ${{ github.event.inputs.branch-name }} --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  add-submodule:
+    runs-on: ubuntu-latest
+    needs: create-branch
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add Submodule
+        run: |
+          git submodule add -b ${THE_NAME/\//-} git@github.com:scaffoldly/scaffoldly-examples.git $THE_NAME
+        env:
+          THE_NAME: ${{ github.event.inputs.branch-name }}
+
+      - name: Push changes
+        run: |
+          git push origin ${{ github.event.inputs.branch-name }} --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
