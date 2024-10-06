@@ -12,7 +12,7 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
-[https://klenvt3dn7qox4auhrvypbpfzq0mzghv.lambda-url.us-east-1.on.aws/](https://klenvt3dn7qox4auhrvypbpfzq0mzghv.lambda-url.us-east-1.on.aws/weatherforecast)
+[https://fqjyxerjyvaoxmdiiywhrm7xgm0hvouq.lambda-url.us-east-1.on.aws/weatherforecast](https://fqjyxerjyvaoxmdiiywhrm7xgm0hvouq.lambda-url.us-east-1.on.aws/weatherforecast)
 
 ## First, Scaffoldly Config was added...
 
@@ -54,10 +54,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::123456789012:role/apiapp-24d1a1f7
+   🆔 App Identity: arn:aws:iam::123456789012:role/csharpapp-24d1a1f7
    📄 Env Files: .env.main, .env
    📦 Image Size: 942.47 MB
-   🌎 URL: https://klenvt3dn7qox4auhrvypbpfzq0mzghv.lambda-url.us-east-1.on.aws
+   🌎 URL: https://fqjyxerjyvaoxmdiiywhrm7xgm0hvouq.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
