@@ -1,4 +1,0 @@
-[submodule "dotnet/csharp"]
-	path = dotnet/csharp
-	url = git@github.com:scaffoldly/scaffoldly-examples.git
-	branch = dotnet-csharp
