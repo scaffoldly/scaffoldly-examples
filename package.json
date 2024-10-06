@@ -1,0 +1,36 @@
+{
+  "name": "node-express",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1"
+  },
+  "scaffoldly": {
+    "runtime": "node:22-alpine",
+    "handler": "localhost:3000",
+    "services": [
+      {
+        "name": "express",
+        "files": [
+          "bin",
+          "node_modules",
+          "public",
+          "routes",
+          "app.js",
+          "package.json",
+          "package-lock.json"
+        ],
+        "scripts": {
+          "install": "npm ci",
+          "start": "DEBUG=test:* npm start"
+        }
+      }
+    ]
+  }
+}
