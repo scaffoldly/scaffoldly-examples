@@ -3,8 +3,8 @@ name: Birth a New Example
 on:
   workflow_dispatch:
     inputs:
-      branch-name:
-        description: "The name of the new branch (e.g. nodejs/express)"
+      name:
+        description: "The directory for the new project (e.g. nodejs/express)"
         required: true
 
 permissions:
@@ -28,9 +28,11 @@ jobs:
 
       - name: Create New Branch
         run: |
-          git rev-parse --verify ${{ github.event.inputs.branch-name }} >/dev/null 2>&1 && { echo "Branch 'BRANCH_NAME' already exists."; exit 1; }
-          git checkout -b ${{ github.event.inputs.branch-name }}
+          BRANCH_NAME=${THE_NAME//\//-}
+          git rev-parse --verify $BRANCH_NAME >/dev/null 2>&1 && { echo "Branch '$BRANCH_NAME' already exists."; exit 1; }
+          git checkout -b $BRANCH_NAME
         env:
+          THE_NAME: ${{ github.event.inputs.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Clear submodules
@@ -63,8 +65,10 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin ${{ github.event.inputs.branch-name }} --force
+          BRANCH_NAME=${THE_NAME//\//-}
+          git push origin $BRANCH_NAME --force
         env:
+          THE_NAME: ${{ github.event.inputs.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   add-submodule:
@@ -91,13 +95,13 @@ jobs:
           git submodule set-url $THE_NAME git@github.com:scaffoldly/scaffoldly-examples.git
           git submodule sync
           git add .gitmodules
-          git commit -m "Create $THE_NAME submodule" || echo "No changes to commit"
+          git commit -m "Create $BRANCH_NAME submodule" || echo "No changes to commit"
         env:
-          THE_NAME: ${{ github.event.inputs.branch-name }}
+          THE_NAME: ${{ github.event.inputs.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push changes
         run: |
-          git push origin ${{ github.event.inputs.branch-name }} --force
+          git push origin ${{ github.event.inputs.name }} --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
