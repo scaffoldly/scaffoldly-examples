@@ -1,4 +1,4 @@
-name: Birth a new Example
+name: Birth a New Example
 
 on:
   workflow_dispatch:
@@ -84,7 +84,14 @@ jobs:
 
       - name: Add Submodule
         run: |
-          git submodule add -b ${THE_NAME/\//-} git@github.com:scaffoldly/scaffoldly-examples.git $THE_NAME
+          BRANCH_NAME=${THE_NAME//\//-}
+          git config --global url."https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
+          git submodule add -b $BRANCH_NAME https://github.com/scaffoldly/scaffoldly-examples.git $THE_NAME
+          git submodule update --init --recursive
+          git submodule set-url $THE_NAME git@github.com:scaffoldly/scaffoldly-examples.git
+          git submodule sync
+          git add .gitmodules
+          git commit -m "Create $THE_NAME submodule" || echo "No changes to commit"
         env:
           THE_NAME: ${{ github.event.inputs.branch-name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
