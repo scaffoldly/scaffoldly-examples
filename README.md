@@ -4,12 +4,12 @@ This repository contains example usage of the [`scaffoldly`](https://scaffoldly.
 
 ## Frameworks
 
-We've create a handful of examples to allow you to use Scaffoldly.
+We've created a handful of examples to show you how Scaffoldly can be used.
 
 | Language | Framework | Examples                 |
-| -------- | :-------: | ------------------------ |
-| .NET     |    C#     | [C#](dotnet/csharp)      |
-| Node     |  Next.js  | [`default`](node/nextjs) |
+| -------- | --------- | ------------------------ |
+| .NET     | C#        | [Default](dotnet/csharp) |
+| Node     | Next.js   | [Default](node/nextjs)   |
 
 ## Questions, Feedback, and Help
 
