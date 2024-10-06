@@ -18,3 +18,7 @@
 	path = node/express
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = node-express
+[submodule "node/react-vite"]
+	path = node/react-vite
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = node-react-vite
