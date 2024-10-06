@@ -6,11 +6,11 @@ This repository contains example usage of the [`scaffoldly`](https://scaffoldly.
 
 We've created a handful of examples to show you how Scaffoldly can be used.
 
-| Language | Framework | Customizations         | Example Projects                                                                                          | Public URL                                                                                           |
-| :------- | :-------- | :--------------------- | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
-| .NET     | C#        |                        | [`dotnet-csharp`](https://github.com/scaffoldly/scaffoldly-examples/tree/dotnet-csharp)                   | [Function URL](https://wmnaydmf2zp5s7rw4htcw5rcku0cwkfq.lambda-url.us-east-1.on.aws/weatherforecast) |
-| Node     | Next.js   |                        | [`node-nextjs`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs)                       | [Function URL](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)                 |
-|          |           | `output: "standalone"` | [`node-nextjs-standalone`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-standalone) | [Function URL](https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws)                 |
+| Language | Framework                   | Example Projects                                                                                          | Public URL                                                                                           |
+| :------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
+| .NET     | C#                          | [`dotnet-csharp`](https://github.com/scaffoldly/scaffoldly-examples/tree/dotnet-csharp)                   | [Function URL](https://wmnaydmf2zp5s7rw4htcw5rcku0cwkfq.lambda-url.us-east-1.on.aws/weatherforecast) |
+| Node     | Next.js                     | [`node-nextjs`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs)                       | [Function URL](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)                 |
+|          | Next.js (`standalone` mode) | [`node-nextjs-standalone`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-standalone) | [Function URL](https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws)                 |
 
 ## Questions, Feedback, and Help
 
