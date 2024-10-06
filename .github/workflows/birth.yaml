@@ -102,6 +102,6 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin ${{ github.event.inputs.name }} --force
+          git push origin HEAD --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
