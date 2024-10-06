@@ -10,3 +10,7 @@
 	path = node/nextjs-standalone
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = node-nextjs-standalone
+[submodule "node/nextjs-export"]
+	path = node/nextjs-export
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = node-nextjs-export
