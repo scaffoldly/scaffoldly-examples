@@ -26,3 +26,7 @@
 	path = node/connect
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = node-connect
+[submodule "go/connect"]
+	path = go/connect
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = go-connect
