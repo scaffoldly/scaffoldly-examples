@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: "The directory for the new project (e.g. nodejs/express)"
+        description: "The directory for the new project (e.g. node/express or python/flask)"
         required: true
 
 permissions:
