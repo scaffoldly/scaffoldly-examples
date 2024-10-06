@@ -37,7 +37,7 @@ npx scaffoldly deploy
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) for details on the `scaffoldly deploy` command.
 
-### After deploy the C# app is available on a public URL
+### After deploy the app is available on a public URL
 
 ```bash
 🚀 Deployment Complete!
