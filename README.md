@@ -12,7 +12,7 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
-[https://fqjyxerjyvaoxmdiiywhrm7xgm0hvouq.lambda-url.us-east-1.on.aws/weatherforecast](https://fqjyxerjyvaoxmdiiywhrm7xgm0hvouq.lambda-url.us-east-1.on.aws/weatherforecast)
+[https://wmnaydmf2zp5s7rw4htcw5rcku0cwkfq.lambda-url.us-east-1.on.aws](https://wmnaydmf2zp5s7rw4htcw5rcku0cwkfq.lambda-url.us-east-1.on.aws/weatherforecast)
 
 ## First, Scaffoldly Config was added...
 
