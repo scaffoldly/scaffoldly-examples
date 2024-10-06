@@ -12,14 +12,14 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
-[https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)
+[https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws](https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws)
 
 ## First, [`next.config.mjs`](next.config.mjs) was updated
 
 We've set `output` to be [`standalone`](https://nextjs.org/docs/pages/api-reference/next-config-js/output):
 
-- This compiles a `server.js` which can be run with `node`
-- The `next` binary is no longer needed to start the app
+- `export` mode creates a `server.js` file that can be run with `node`
+- The `next` binary is no longer required to serve the application
 
 ```js
 const nextConfig = {
@@ -30,6 +30,11 @@ const nextConfig = {
 ## Then, Scaffoldly Config was added...
 
 In the project's [`package.json`](package.json) file, the `scaffoldly` configuration was added:
+
+- `server.js` is copied from `.next/standalone/server.js`
+- The start command now uses `node` to run `server.js`
+- `node_modules` is no longer needed
+- The size of the container is substantially smaller
 
 ```jsonc
 {
@@ -74,7 +79,7 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 🚀 Deployment Complete!
    🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-standalone-5d74f9cd
    📄 Env Files: .env.main, .env
-   📦 Image Size: 662.58 MB
+   📦 Image Size: 257.35 MB
    🌎 URL: https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws
 ```
 
