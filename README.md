@@ -12,11 +12,11 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
-[https://todo](https://todo)
+[https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`package.json`](./package.json) file, the `scaffoldly` configuration was added:
+In the project's [`package.json`](package.json) file, the `scaffoldly` configuration was added:
 
 ```jsonc
 {
@@ -56,10 +56,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: todo
+   🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-740c100e
    📄 Env Files: .env.main, .env
    📦 Image Size: todo MB
-   🌎 URL: https://todo
+   🌎 URL: https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
