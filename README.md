@@ -3,7 +3,7 @@
 This application was generated with the following command:
 
 ```bash
-dotnet new webapi -n CSharpApp
+dotnet new webapi -n DotNetCSharpApp
 ```
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
@@ -16,7 +16,7 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`.csproj`](./CSharpApp.csproj) file, the `<Scaffoldly/>` configuration was added to `<PropertyGroup/>`:
+In the project's [`.csproj`](./DotNetCSharpApp.csproj) file, the `<Scaffoldly/>` configuration was added to `<PropertyGroup/>`:
 
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -27,12 +27,12 @@ In the project's [`.csproj`](./CSharpApp.csproj) file, the `<Scaffoldly/>` confi
     <Scaffoldly>
       <Runtime>mcr.microsoft.com/dotnet/sdk:8.0</Runtime>
       <Handler>localhost:8080</Handler>
-      <Bin name="CSharpApp.dll">CSharpApp:bin/Release/net8.0/publish/CSharpApp.dll</Bin>
-      <Service name="CSharpApp">
-        <File>CSharpApp.csproj</File>
+      <Bin name="DotNetCSharpApp.dll">DotNetCSharpApp:bin/Release/net8.0/publish/DotNetCSharpApp.dll</Bin>
+      <Service name="DotNetCSharpApp">
+        <File>DotNetCSharpApp.csproj</File>
         <File>bin</File>
         <Script name="build">dotnet publish</Script>
-        <Script name="start">dotnet CSharpApp.dll</Script>
+        <Script name="start">dotnet DotNetCSharpApp.dll</Script>
       </Service>
     </Scaffoldly>
 
@@ -54,7 +54,7 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::123456789012:role/csharpapp-24d1a1f7
+   🆔 App Identity: arn:aws:iam::123456789012:role/dotnetDotNetCSharpapp-24d1a1f7
    📄 Env Files: .env.main, .env
    📦 Image Size: 942.47 MB
    🌎 URL: https://fqjyxerjyvaoxmdiiywhrm7xgm0hvouq.lambda-url.us-east-1.on.aws

@@ -9,12 +9,12 @@
     <Scaffoldly>
       <Runtime>mcr.microsoft.com/dotnet/sdk:8.0</Runtime>
       <Handler>localhost:8080</Handler>
-      <Bin name="CSharpApp.dll">CSharpApp:bin/Release/net8.0/publish/CSharpApp.dll</Bin>
-      <Service name="CSharpApp">
-        <File>CSharpApp.csproj</File>
+      <Bin name="DotNetCSharpApp.dll">DotNetCSharpApp:bin/Release/net8.0/publish/DotNetCSharpApp.dll</Bin>
+      <Service name="DotNetCSharpApp">
+        <File>DotNetCSharpApp.csproj</File>
         <File>bin</File>
         <Script name="build">dotnet publish</Script>
-        <Script name="start">dotnet CSharpApp.dll</Script>
+        <Script name="start">dotnet DotNetCSharpApp.dll</Script>
       </Service>
     </Scaffoldly>
 

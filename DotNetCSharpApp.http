@@ -1,0 +1,6 @@
+@DotNetCSharpApp_HostAddress = http://localhost:5083
+
+GET {{DotNetCSharpApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
