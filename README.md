@@ -6,10 +6,10 @@ This repository contains example usage of the [`scaffoldly`](https://scaffoldly.
 
 We've created a handful of examples to show you how Scaffoldly can be used.
 
-| Language | Framework | Examples                 |
-| -------- | --------- | ------------------------ |
-| .NET     | C#        | [Default](dotnet/csharp) |
-| Node     | Next.js   | [Default](node/nextjs)   |
+| Language | Framework | Examples                                                                           |
+| -------- | --------- | ---------------------------------------------------------------------------------- |
+| .NET     | C#        | [Example #1](https://github.com/scaffoldly/scaffoldly-examples/tree/dotnet-csharp) |
+| Node     | Next.js   | [Example #1](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs)   |
 
 ## Questions, Feedback, and Help
 
