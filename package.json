@@ -1,5 +1,5 @@
 {
-  "name": "node-nextjs-standalone",
+  "name": "node-nextjs-export",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,20 +26,23 @@
   "scaffoldly": {
     "runtime": "node:22-alpine",
     "handler": "localhost:3000",
+    "packages": [
+      "npm:serve"
+    ],
     "services": [
       {
         "name": "next",
         "files": [
           "package.json",
           ".next",
-          "node_modules",
+          "out",
           "package-lock.json"
         ],
         "scripts": {
           "install": "npm ci",
           "dev": "next dev",
           "build": "next build",
-          "start": "next start"
+          "start": "serve out"
         }
       }
     ]

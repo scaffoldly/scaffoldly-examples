@@ -1,9 +1,9 @@
-# A Next.js App Running On AWS Lambda (`standalone` mode)
+# A Next.js App Running On AWS Lambda (`export` mode)
 
 This application was generated with the following command:
 
 ```bash
-npx create-next-app@latest node-nextjs-standalone
+npx create-next-app@latest node-nextjs-export
 ```
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
@@ -16,14 +16,14 @@ Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ## First, [`next.config.mjs`](next.config.mjs) was updated
 
-We've set `output` to be [`standalone`](https://nextjs.org/docs/pages/api-reference/next-config-js/output):
+We've set `output` to be [`export`](https://nextjs.org/docs/pages/api-reference/next-config-js/output):
 
-- This compiles a `server.js` which can be run with `node`
+- `export` mode creates a Single Page Application (SPA) with no backend
 - The `next` binary is no longer needed to start the app
 
 ```js
 const nextConfig = {
-  output: "standalone",
+  output: "export",
 };
 ```
 
@@ -31,26 +31,34 @@ const nextConfig = {
 
 In the project's [`package.json`](package.json) file, the `scaffoldly` configuration was added:
 
+- The `serve` binary is installed to serve the static HTML
+- The `start` command now uses `serve out` to serve the static HTML
+
 ```jsonc
 {
-  "name": "node-nextjs-standalone",
+  "name": "node-nextjs-export",
   "version": "0.1.0",
   // ... snip ...
-  "scaffoldly": {
+  "scaffoldly":   "scaffoldly": {
     "runtime": "node:22-alpine",
     "handler": "localhost:3000",
-    "bin": {
-      "server.js": "next:.next/standalone/server.js"
-    },
+    "packages": [
+      "npm:serve"
+    ],
     "services": [
       {
         "name": "next",
-        "files": ["package.json", ".next", "package-lock.json"],
+        "files": [
+          "package.json",
+          ".next",
+          "out",
+          "package-lock.json"
+        ],
         "scripts": {
           "install": "npm ci",
           "dev": "next dev",
           "build": "next build",
-          "start": "node server.js"
+          "start": "serve out"
         }
       }
     ]
@@ -72,10 +80,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-standalone-5d74f9cd
+   🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-export-c2f26520
    📄 Env Files: .env.main, .env
-   📦 Image Size: 662.58 MB
-   🌎 URL: https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws
+   📦 Image Size: 225.36 MB
+   🌎 URL: https://jtzom2obx3owx4gn4vluichvze0frzcn.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
