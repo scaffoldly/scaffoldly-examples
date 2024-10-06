@@ -8,6 +8,8 @@ This application was generated with the following command:
 dotnet new webapi -n DotNetCSharpApp
 ```
 
+**Notes**:
+
 - ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 - 🤯 Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples).
 - 💡 Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
