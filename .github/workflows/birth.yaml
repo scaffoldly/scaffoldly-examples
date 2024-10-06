@@ -37,7 +37,7 @@ jobs:
           grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git submodule deinit -f {}
           grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git rm -f {}
           grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} rm -rf {}
-          git config -f .git/config --remove-section submodule.{}
+          grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git config -f .git/config --remove-section submodule.{}
           git add .gitmodules
           git add .
           git commit -m "Clear submodules" || echo "No changes to commit"
