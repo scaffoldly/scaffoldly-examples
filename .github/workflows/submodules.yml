@@ -24,7 +24,6 @@ jobs:
 
       - name: Update submodules to their latest version
         run: |
-          git submodule sync --recursive
           git submodule update --remote --recursive
           git add .
           git commit -m "Daily update of submodules" || echo "No changes to commit"
