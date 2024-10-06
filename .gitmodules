@@ -6,3 +6,7 @@
 	path = node/nextjs
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = node-nextjs
+[submodule "node/nextjs-standalone"]
+	path = node/nextjs-standalone
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = node-nextjs-standalone
