@@ -1,12 +1,12 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+# A Golang Connect (ConnectRPC) App Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=go-connect&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
-This application was generated with the following command:
+This application was created by following the following instructions:
 
-```bash
-CHANGEME-CREATECOMMAND
-```
+1. Connect's [Getting Started](https://connectrpc.com/docs/go/getting-started) guide.
+   - _Note:_: Used a `module` name of `go-connect` instead of `example`
+   - _Skipped_: The steps to make a SSL certificate, since AWS Lambda Function URLs operate over TLS by default.
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
@@ -14,17 +14,45 @@ Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples
 
 ### Working example
 
-[CHANGEME-URL](CHANGEME-URL)
+[https://6m7hwen7ailmu4jkcfe5b23tii0nfnhf.lambda-url.us-east-1.on.aws](https://6m7hwen7ailmu4jkcfe5b23tii0nfnhf.lambda-url.us-east-1.on.aws)
+
+And to `curl` using ConnectRPC:
+
+```
+curl \
+    --header "Content-Type: application/json" \
+    --data '{"name": "Jane"}' \
+    https://6m7hwen7ailmu4jkcfe5b23tii0nfnhf.lambda-url.us-east-1.on.aws/greet.v1.GreetService/Greet
+```
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
+A [`scaffoldly.json`](scaffoldly.json) configuration contains the configuration:
 
-- Note 1
-- Note 2
+- `connect` is built in an intermediate container using the `golang:1.22-alpine3.20` runtime
+- `bin` is the only output from the `build` command
+- `server` is copied from `bin/server` to the root
+- The `server` is started by simply invoking the `server` compiled binary
 
-```
-CHANGEME-CONFIG
+```json
+{
+  "runtime": "alpine:3.20",
+  "handler": "localhost:8080",
+  "bin": {
+    "server": "connect:bin/server"
+  },
+  "services": [
+    {
+      "name": "connect",
+      "runtime": "golang:1.22-alpine3.20",
+      "files": ["bin"],
+      "scripts": {
+        "build": "go build -o bin/ ./cmd/server ./cmd/client",
+        "start": "server"
+      }
+    }
+  ]
+}
 ```
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
@@ -41,10 +69,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
+   🆔 App Identity: arn:aws:iam::123456789012:role/go-connect-3d6f6f21
    📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
+   📦 Image Size: 101.42 MB
+   🌎 URL: https://6m7hwen7ailmu4jkcfe5b23tii0nfnhf.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD

@@ -1,0 +1,48 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build outputs
+bin/
+build/
+dist/
+
+# Compiled object files
+*.o
+*.a
+
+# Test binaries
+*.test
+
+# Logs
+*.log
+logs/
+log/
+
+# Coverage reports
+coverage.out
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Vendor directory (if not committing vendor dependencies)
+vendor/
+
+# IDE/editor configurations
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Other
+*.bak
+*.old
