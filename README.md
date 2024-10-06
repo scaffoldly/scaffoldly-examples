@@ -75,11 +75,11 @@ npx scaffoldly deploy
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) for details on the `scaffoldly deploy` command.
 
-### After deploy the C# app is available on a public URL
+### After deploy the app is available on a public URL
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::796973506507:role/node-nextjs-standalone-5d74f9cd
+   🆔 App Identity: arn:aws:iam::123456789012:role/node-nextjs-standalone-5d74f9cd
    📄 Env Files: .env.main, .env
    📦 Image Size: 257.35 MB
    🌎 URL: https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws
