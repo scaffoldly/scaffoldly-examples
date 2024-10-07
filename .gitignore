@@ -4,3 +4,6 @@ package-lock.json
 
 # Next.js Stuff
 next-env.d.ts
+
+# Rust Stuff
+target/

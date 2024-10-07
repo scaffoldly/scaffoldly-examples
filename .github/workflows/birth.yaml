@@ -6,6 +6,10 @@ on:
       name:
         description: "The directory for the new project (e.g. node/express or python/flask)"
         required: true
+      from:
+        description: "The source branch to copy from"
+        required: false
+        default: "main"
 
 permissions:
   id-token: write
@@ -18,6 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.inputs.from }}
           submodules: recursive
           fetch-depth: 0
 
@@ -35,7 +40,8 @@ jobs:
           THE_NAME: ${{ github.event.inputs.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Clear submodules
+      - if: ${{ github.event.inputs.from != 'main' }}
+        name: Clear submodules
         run: |
           grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git submodule deinit -f {}
           grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git rm -f {}
@@ -45,7 +51,8 @@ jobs:
           git add .
           git commit -m "Clear submodules" || echo "No changes to commit"
 
-      - name: Clean Directory
+      - if: ${{ github.event.inputs.from != 'main' }}
+        name: Clean Directory
         run: |
           mv .templates /tmp/.templates
           rm -fr .github
@@ -55,7 +62,8 @@ jobs:
           git add .
           git commit -m "Clean directory" || echo "No changes to commit"
 
-      - name: Add Templates
+      - if: ${{ github.event.inputs.from != 'main' }}
+        name: Add Templates
         run: |
           mkdir -p .github/workflows
           cp /tmp/.templates/scaffoldly.yml .github/workflows/scaffoldly.yml
