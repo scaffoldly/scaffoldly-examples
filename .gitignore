@@ -1,6 +1,0 @@
-# Node.js Stuff
-node_modules/
-package-lock.json
-
-# Next.js Stuff
-next-env.d.ts
