@@ -1,12 +1,12 @@
-# A Rust + Hyper App Running On AWS Lambda
+# A Rust + Axum App Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=rust-hyper&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=rust-axum&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
 ## Introduction
 
 [Scaffoldly](https://github.com/scaffoldly/scaffoldly) allows you to run **any HTTP server** inside AWS Lambda. It requires **no code** changes to your existing server and a simple configuration in the project's `Cargo.toml`. Deployments can be done locally or in GitHub Actions (see below).
 
-In this example, we're running a [hyper](https://crates.io/crates/hyper) server in AWS Lambda, and the `scaffoldly` toolchain handles packaging, deployment, and routing of AWS Lambda HTTP requests.
+In this example, we're running a [axum](https://crates.io/crates/axum) server in AWS Lambda, and the [`scaffoldly`](https://scaffoldly.dev) toolchain handles packaging, deployment, and routing of AWS Lambda HTTP requests.
 
 ⭐️ Please [give `scaffoldly` a star](https://github.com/scaffoldly/scaffoldly) on GitHub! ⭐️
 
@@ -14,7 +14,15 @@ In this example, we're running a [hyper](https://crates.io/crates/hyper) server 
 
 This application was created by following the following instructions:
 
-1. Hyper's [Getting Started](https://hyper.rs/guides/1/server/hello-world/) guide.
+```bash
+cargo init
+cargo add axum tracing
+cargo add tokio --features full
+cargo add serde --features derive
+cargo add tracing-subscriber --features env-filter
+```
+
+Then the [Usage Example](https://crates.io/crates/axum#usage-example) was added to [`src/main.rs`](src/main.rs).
 
 ✨ No other modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
@@ -22,22 +30,31 @@ Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples
 
 ### Working example
 
-[https://x3nlq7rmjc675skupaksowqut40fflpc.lambda-url.us-east-1.on.aws](https://x3nlq7rmjc675skupaksowqut40fflpc.lambda-url.us-east-1.on.aws)
+[https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws](https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws)
+
+And to `curl` the `users` endpoint:
+
+```
+curl \
+    --header "Content-Type: application/json" \
+    --data '{"username": "Jane"}' \
+    https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws/users
+```
 
 ## First, Scaffoldly Config was added...
 
 In the project's [`Cargo.toml`](Cargo.toml) file, the `scaffoldly` configuration was added:
 
 - Only the `target` directory is included in files to be packaged for runtime
-  - The `target` directory is lifted out of the `hyper` stage and included in the base `alpine` container
-- `hyper` requires `gcc` and `musl-dev` to run `cargo build` on `alpine`
+  - The `target` directory is lifted out of the `axum` stage and included in the base `alpine` container
+- adding `gcc` and `musl-dev` to run `cargo build` on `alpine`
   - `gcc` and `musl-dev` are only added at **compile time**
-    - use `npx scaffoldly show dockerfile` to show the build stages
-- the `target/release/rust-hyper` server is run when the Lambda Function starts
+  - _Tip_: use `npx scaffoldly show dockerfile` to show the build stages
+- the `target/release/rust-axum` server is run when the Lambda Function starts
 
 ```toml
 [package]
-name = "rust-hyper"
+name = "rust-axum"
 version = "0.1.0"
 
 # ...snip...
@@ -47,11 +64,11 @@ runtime = "alpine:3.20"
 handler = "localhost:3000"
 
 [[package.metadata.scaffoldly.services]]
-name = "hyper"
+name = "axum"
 runtime = "rust:1-alpine3.20"
 files = ["target"]
 packages = ["gcc", "musl-dev"]
-scripts = { build = "cargo build --release", start = "target/release/rust-hyper" }
+scripts = { build = "cargo build --release", start = "target/release/rust-axum" }
 ```
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
@@ -68,10 +85,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::123456789012:role/rust-hyper-47be7050
+   🆔 App Identity: arn:aws:iam::123456789012:role/rust-axum-a2cd2713
    📄 Env Files: .env.main, .env
-   📦 Image Size: 148.6 MB
-   🌎 URL: https://x3nlq7rmjc675skupaksowqut40fflpc.lambda-url.us-east-1.on.aws
+   📦 Image Size: 222.35 MB
+   🌎 URL: https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD

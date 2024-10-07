@@ -1,21 +1,22 @@
 [package]
-name = "rust-hyper"
+name = "rust-axum"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-hyper = { version = "1", features = ["full"] }
-tokio = { version = "1", features = ["full"] }
-http-body-util = "0.1"
-hyper-util = { version = "0.1", features = ["full"] }
+axum = "0.7.7"
+serde = { version = "1.0.210", features = ["derive"] }
+tokio = { version = "1.40.0", features = ["full"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 
 [package.metadata.scaffoldly]
 runtime = "alpine:3.20"
 handler = "localhost:3000"
 
 [[package.metadata.scaffoldly.services]]
-name = "hyper"
+name = "axum"
 runtime = "rust:1-alpine3.20"
 files = ["target"]
 packages = ["gcc", "musl-dev"]
-scripts = { build = "cargo build --release", start = "target/release/rust-hyper" }
+scripts = { build = "cargo build --release", start = "target/release/rust-axum" }
