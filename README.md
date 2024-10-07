@@ -44,6 +44,7 @@ We've created a handful of examples to show how Scaffoldly can be used.
 | Node     | Next.js (`export` mode)     | [`node-nextjs-export`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-export)         | [Function URL](https://jtzom2obx3owx4gn4vluichvze0frzcn.lambda-url.us-east-1.on.aws)                 | ~200 MB    |
 | Node     | Next.js (`standalone` mode) | [`node-nextjs-standalone`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-standalone) | [Function URL](https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws)                 | ~250 MB    |
 | Node     | React (with `vite`)         | [`node-react-vite`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-react-vite)               | [Function URL](https://qgb37tjq2vu4qlejnu2p7zzire0tqtsy.lambda-url.us-east-1.on.aws)                 | ~200 MB    |
+| Rust     | Axum                        | [`rust-axum`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-axum)                           | [Function URL](https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws)                 | ~230 MB    |
 | Rust     | Hyper                       | [`rust-hyper`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-hyper)                         | [Function URL](https://x3nlq7rmjc675skupaksowqut40fflpc.lambda-url.us-east-1.on.aws)                 | ~150 MB    |
 
 ## Questions, Feedback, and Help
