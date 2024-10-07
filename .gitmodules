@@ -30,3 +30,7 @@
 	path = go/connect
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = go-connect
+[submodule "rust/hyper"]
+	path = rust/hyper
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = rust-hyper
