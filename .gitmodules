@@ -34,3 +34,7 @@
 	path = rust/hyper
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = rust-hyper
+[submodule "rust/axum"]
+	path = rust/axum
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = rust-axum
