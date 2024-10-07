@@ -40,7 +40,7 @@ jobs:
           THE_NAME: ${{ github.event.inputs.name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - if: ${{ github.event.inputs.from != 'main' }}
+      - if: ${{ github.event.inputs.from == 'main' }}
         name: Clear submodules
         run: |
           grep -oP '(?<=path = ).*' .gitmodules | xargs -I {} git submodule deinit -f {}
@@ -51,7 +51,7 @@ jobs:
           git add .
           git commit -m "Clear submodules" || echo "No changes to commit"
 
-      - if: ${{ github.event.inputs.from != 'main' }}
+      - if: ${{ github.event.inputs.from == 'main' }}
         name: Clean Directory
         run: |
           mv .templates /tmp/.templates
@@ -62,7 +62,7 @@ jobs:
           git add .
           git commit -m "Clean directory" || echo "No changes to commit"
 
-      - if: ${{ github.event.inputs.from != 'main' }}
+      - if: ${{ github.event.inputs.from == 'main' }}
         name: Add Templates
         run: |
           mkdir -p .github/workflows
