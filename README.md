@@ -4,9 +4,11 @@
 
 ## Introduction
 
-[Scaffoldly](https://scaffoldly.dev) allows you to run **any HTTP server** inside AWS Lambda. It requires **no code** changes to your existing server and a very basic configuration in the project's `Cargo.toml`. Deployments can be done locally or in GitHub Actions (see below).
+[Scaffoldly](https://github.com/scaffoldly/scaffoldly) allows you to run **any HTTP server** inside AWS Lambda. It requires **no code** changes to your existing server and a simple configuration in the project's `Cargo.toml`. Deployments can be done locally or in GitHub Actions (see below).
 
 In this example, we're running a [hyper](https://crates.io/crates/hyper) server in AWS Lambda, and the `scaffoldly` toolchain handles packaging, deployment, and routing of AWS Lambda HTTP requests.
+
+⭐️ Please [give `scaffoldly` a star](https://github.com/scaffoldly/scaffoldly) on GitHub! ⭐️
 
 ## Project Creation
 
@@ -16,7 +18,7 @@ This application was created by following the following instructions:
 
 ✨ No other modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
-Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
+Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ### Working example
 
