@@ -38,3 +38,7 @@
 	path = rust/axum
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = rust-axum
+[submodule "php/wordpress"]
+	path = php/wordpress
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = php-wordpress
