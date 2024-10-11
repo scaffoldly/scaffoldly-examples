@@ -1,0 +1,27 @@
+name: Scaffoldly Deploy
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: "0 12 * * *"
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  # AWS_REGION: us-east-1 # Optional, defaults to us-east-1
+  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        uses: scaffoldly/scaffoldly@v1
+        with:
+          secrets: ${{ toJSON(secrets) }}
