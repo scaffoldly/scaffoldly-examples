@@ -1,0 +1,19 @@
+{
+  "name": "wordpress",
+  "version": "0.0.0",
+  "runtime": "wordpress:6.6-fpm-alpine",
+  "handler": "localhost:8080",
+  "taskdir": "/var/www/html",
+  "files": ["wp-config.php"],
+  "packages": ["mysql-client"],
+  "bin": {
+    "index.php": "wordpress/index.php",
+    "wp": "bin/wp-cli.phar"
+  },
+  "scripts": {
+    "start": "php -S localhost:8080 -t /var/www/html"
+  },
+  "schedules": {
+    "@immediately": "wp db create || true"
+  }
+}
