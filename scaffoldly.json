@@ -4,8 +4,10 @@
   "runtime": "wordpress:6.6-fpm-alpine",
   "handler": "localhost:8080",
   "taskdir": "/var/www/html",
+  "user": "www-data",
   "files": ["wp-config.php"],
   "packages": ["mysql-client"],
+  "secrets": ["DB_PASSWORD"],
   "bin": {
     "index.php": "wordpress/index.php",
     "wp": "bin/wp-cli.phar"
