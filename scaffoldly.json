@@ -9,7 +9,7 @@
   "packages": ["mysql-client"],
   "secrets": ["DB_PASSWORD"],
   "bin": {
-    "index.php": "wordpress/index.php",
+    "index.php": "public/index.php",
     "wp": "bin/wp-cli.phar"
   },
   "scripts": {
