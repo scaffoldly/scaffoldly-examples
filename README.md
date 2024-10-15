@@ -4,7 +4,7 @@
 
 This application was generated with the following command:
 
-1. `poetry new flask-poetry && cd flask-poeetry`
+1. `poetry new flask-poetry && cd flask-poetry`
 1. `poetry add flask`
 
 Then, the [Simple Example](https://github.com/pallets/flask/?tab=readme-ov-file#a-simple-example) from [`flask`](https://github.com/pallets/flask) was added to [`flask_poetry/__init__.py`](flask_poetry/__init__.py).
