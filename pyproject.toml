@@ -2,7 +2,7 @@
 name = "flask-poetry"
 version = "0.1.0"
 description = ""
-authors = []
+authors = ["Scaffoldly Examples <examples@scaffoldly.dev>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
