@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "flask-poetry"
+version = "0.1.0"
+description = ""
+authors = ["Christian Nuss <christian.nuss@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+flask = "^3.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.scaffoldly]
+runtime = "python:3.13"
+handler = "localhost:5000"
+files = ["pyproject.toml", "poetry.lock"]
+packages = ["pip:poetry"]
+
+[tool.scaffoldly.services.flask]
+files = [".venv", "flask_poetry"]
+packages = ["pip:poetry"]
+
+[tool.scaffoldly.services.flask.scripts]
+prepare = "poetry config virtualenvs.in-project true"
+install = "poetry install"
+start = "poetry run flask --app flask_poetry run"

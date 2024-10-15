@@ -1,12 +1,13 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+# A Python + Flask (w/Poetry) App Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-flask-poetry&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
 This application was generated with the following command:
 
-```bash
-CHANGEME-CREATECOMMAND
-```
+1. `poetry new flask-poetry && cd flask-poeetry`
+1. `poetry add flask`
+
+Then, the [Simple Example](https://github.com/pallets/flask/?tab=readme-ov-file#a-simple-example) from [`flask`](https://github.com/pallets/flask) was added to [`flask_poetry/__init__.py`](flask_poetry/__init__.py).
 
 ✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
@@ -14,17 +15,32 @@ Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples
 
 ### Working example
 
-[CHANGEME-URL](CHANGEME-URL)
+[https://7dkca5ogwlgdjc66e4wc5braiu0ewgma.lambda-url.us-east-1.on.aws](https://7dkca5ogwlgdjc66e4wc5braiu0ewgma.lambda-url.us-east-1.on.aws)
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
+In the project's [`pyproject.toml`](pyproject.toml) file, the `scaffoldly` configuration was added:
 
-- Note 1
-- Note 2
+- `poetry` is installed using the `packages` directive
+- The `prepare` command in `flask` will have `poetry` make a `.venv` when `poetry install` is invoked.
+- The `files` command for `flask` includes all of the files/and directories needed at runtime.
+- The `start` command in `flask` will start `flask` using `poetry run`
 
 ```
-CHANGEME-CONFIG
+[tool.scaffoldly]
+runtime = "python:3.13"
+handler = "localhost:5000"
+files = ["pyproject.toml", "poetry.lock"]
+packages = ["pip:poetry"]
+
+[tool.scaffoldly.services.flask]
+files = [".venv", "flask_poetry"]
+packages = ["pip:poetry"]
+
+[tool.scaffoldly.services.flask.scripts]
+prepare = "poetry config virtualenvs.in-project true"
+install = "poetry install"
+start = "poetry run flask --app flask_poetry run"
 ```
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
@@ -41,10 +57,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
+   🆔 App Identity: arn:aws:iam::123456789012:role/flask-poetry-9c9f0eac
    📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
+   📦 Image Size: 1.12 GB
+   🌎 URL: https://7dkca5ogwlgdjc66e4wc5braiu0ewgma.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
