@@ -42,3 +42,7 @@
 	path = php/wordpress
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = php-wordpress
+[submodule "python/flask-poetry"]
+	path = python/flask-poetry
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = python-flask-poetry
