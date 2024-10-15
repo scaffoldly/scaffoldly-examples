@@ -7,3 +7,6 @@ next-env.d.ts
 
 # Rust Stuff
 target/
+
+# Python Stuff
+__pycache__/
