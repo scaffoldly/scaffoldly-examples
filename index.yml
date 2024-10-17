@@ -1,0 +1,30 @@
+# Alphabetically Ordered Please!!
+# NOTE: create-scaffoldly-app pulls from this list
+"Frameworks":
+  ".NET":
+    "C#":
+      branch: dotnet-csharp
+  "Go":
+    "ConnectRPC":
+      branch: go-connect
+  "Node":
+    "ConnectRPC (with Fastify)":
+      branch: node-connect
+    "ExpressJS":
+      branch: node-express
+    "Next.js":
+      branch: node-nextjs
+    "Next.js (in Export mode)":
+      branch: node-nextjs-export
+    "Next.js (in Standalone mode)":
+      branch: node-nextjs-standalone
+    "React (with Vite)":
+      branch: node-react-vite
+  Python:
+    "Flask (with Poetry)":
+      branch: python-flask-poetry
+  Rust:
+    "Axum":
+      branch: rust-axum
+    "Hyper":
+      branch: rust-hyper

@@ -10,3 +10,8 @@ target/
 
 # Python Stuff
 __pycache__/
+
+# C# Stuff
+bin/
+obj/
+*.sln

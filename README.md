@@ -32,7 +32,10 @@ Alternatively, browse the various [Frameworks](#frameworks) below and add `scaff
 
 We've created a handful of examples to show how Scaffoldly can be used.
 
-<!-- Alphbetically Ordered Please!!! -->
+<!-- TODO: Generate this table based on frameworks.yaml !-->
+
+<!-- Alphbetically Ordered!!! -->
+<!-- ALSO UPDATE ./index.yml for "create-scaffoldly-app" !!! -->
 
 | Language | Framework                   | Example Projects                                                                                          | Public URL                                                                                           | Image Size |
 | :------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- | ---------- |
@@ -47,6 +50,9 @@ We've created a handful of examples to show how Scaffoldly can be used.
 | Python   | Flask (with `poetry`)       | [`python-flask-poetry`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-flask-poetry)       | [Function URL](https://7dkca5ogwlgdjc66e4wc5braiu0ewgma.lambda-url.us-east-1.on.aws)                 | ~1200 MB   |
 | Rust     | Axum                        | [`rust-axum`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-axum)                           | [Function URL](https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws)                 | ~230 MB    |
 | Rust     | Hyper                       | [`rust-hyper`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-hyper)                         | [Function URL](https://x3nlq7rmjc675skupaksowqut40fflpc.lambda-url.us-east-1.on.aws)                 | ~150 MB    |
+
+<!-- Alphbetically Ordered!!! -->
+<!-- ALSO UPDATE ./index.yml for "create-scaffoldly-app" !!! -->
 
 ## Questions, Feedback, and Help
 
