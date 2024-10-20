@@ -1,5 +1,6 @@
 # Alphabetically Ordered Please!!
 # NOTE: create-scaffoldly-app pulls from this list
+#       - .templates/csa/README.md.tpl uses these values as well
 "Frameworks":
   # ".NET":
   #   "C#":
@@ -8,55 +9,98 @@
   #     type: dotnet
   "Go":
     "ConnectRPC":
+      readmeName: "ConnectRPC (w/Go)"
       branch: go-connect
       projectFile: go.mod
+      configFile: scaffoldly.json
       type: go
       rm: ["go.sum"]
+      handler: "localhost:8080"
+      main: cmd/server/main.go
+      devCommand: go run cmd/server/main.go
   "Node":
     "ConnectRPC (with Fastify)":
+      readmeName: "ConnectRPC (w/Node)"
       branch: node-connect
       projectFile: package.json
       type: node
       rm: ["package-lock.json"]
+      handler: "localhost:8080"
+      main: server.ts
+      devCommand: tsx server.ts
     "ExpressJS":
+      readmeName: "ExpressJS"
       branch: node-express
       projectFile: package.json
       type: node
       rm: ["package-lock.json"]
+      handler: "localhost:3000"
+      main: routes/index.js
+      devCommand: "DEBUG=* npm start"
     "Next.js":
+      readmeName: "Next.js"
       branch: node-nextjs
       projectFile: package.json
       type: node
       rm: ["package-lock.json"]
+      handler: "localhost:3000"
+      main: src/app/page.tsx
+      devCommand: "npm run dev"
     "Next.js (in Export mode)":
+      readmeName: "Next.js"
       branch: node-nextjs-export
       projectFile: package.json
       type: node
       rm: ["package-lock.json"]
+      handler: "localhost:3000"
+      main: src/app/page.tsx
+      devCommand: "npm run dev"
     "Next.js (in Standalone mode)":
+      readmeName: "Next.js"
       branch: node-nextjs-standalone
       projectFile: package.json
       type: node
       rm: ["package-lock.json"]
+      handler: "localhost:3000"
+      main: src/app/page.tsx
+      devCommand: "npm run dev"
     "React (with Vite)":
+      readmeName: "React (w/Vite)"
       branch: node-react-vite
       projectFile: package.json
       type: node
       rm: ["package-lock.json"]
+      handler: "localhost:3000"
+      main: src/App.tsx
+      devCommand: "npm run dev"
   Python:
     "Flask (with Poetry)":
+      readmeName: "Flask (w/Poetry)"
       branch: python-flask-poetry
       projectFile: pyproject.toml
       type: python
       rm: ["poetry.lock"]
+      handler: "localhost:5000"
+      main: server/__init__.py
+      devCommand: "poetry run flask run"
   Rust:
     "Axum":
+      readmeName: "Rust (w/Axum)"
       branch: rust-axum
       projectFile: Cargo.toml
+      configFile: Cargo.toml
       type: rust
       rm: ["Cargo.lock"]
+      handler: "localhost:3000"
+      main: src/main.rs
+      devCommand: "cargo run"
     "Hyper":
+      readmeName: "Rust (w/Hyper)"
       branch: rust-hyper
       projectFile: Cargo.toml
+      configFile: Cargo.toml
       type: rust
       rm: ["Cargo.lock"]
+      handler: "localhost:3000"
+      main: src/main.rs
+      devCommand: "cargo run"
