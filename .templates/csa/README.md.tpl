@@ -14,7 +14,7 @@ You can start editing the application by modifying [`<%= main %>`](<%= main %>).
 
 ## Deploy using Scaffoldly
 
-The application configuration which [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) uses is located in [`<%= configFile or projectFile %>`](<%= configFile or projectFile %>)
+The application configuration which [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) uses is located in [`<%= configFile %>`](<%= configFile %>)
 
 The easiest way to deploy your application is to use the [`npx scaffoldly deploy`](https://scaffoldly.dev/docs/cli) command:
 
