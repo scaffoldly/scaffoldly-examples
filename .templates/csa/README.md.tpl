@@ -1,4 +1,4 @@
-This is a <%= readmeName %> application bootstrapped created with [`create-scaffoldly-app`](https://www.npmjs.com/package/create-scaffoldly-app).
+This is a <%= readmeName %> application created with [`create-scaffoldly-app`](https://www.npmjs.com/package/create-scaffoldly-app).
 
 ## Getting Started
 

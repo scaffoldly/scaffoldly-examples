@@ -9,7 +9,7 @@
   #     type: dotnet
   "Go":
     "ConnectRPC":
-      readmeName: "ConnectRPC (w/Go)"
+      readmeName: "ConnectRPC"
       branch: go-connect
       projectFile: go.mod
       configFile: scaffoldly.json
@@ -17,10 +17,10 @@
       rm: ["go.sum"]
       handler: "localhost:8080"
       main: cmd/server/main.go
-      devCommand: go run cmd/server/main.go
+      devCommand: "go run cmd/server/main.go"
   "Node":
     "ConnectRPC (with Fastify)":
-      readmeName: "ConnectRPC (w/Node)"
+      readmeName: "ConnectRPC"
       branch: node-connect
       projectFile: package.json
       type: node
@@ -65,7 +65,7 @@
       main: src/app/page.tsx
       devCommand: "npm run dev"
     "React (with Vite)":
-      readmeName: "React (w/Vite)"
+      readmeName: "React"
       branch: node-react-vite
       projectFile: package.json
       type: node
@@ -75,7 +75,7 @@
       devCommand: "npm run dev"
   Python:
     "Flask (with Poetry)":
-      readmeName: "Flask (w/Poetry)"
+      readmeName: "Flask"
       branch: python-flask-poetry
       projectFile: pyproject.toml
       type: python
@@ -85,7 +85,7 @@
       devCommand: "poetry run flask run"
   Rust:
     "Axum":
-      readmeName: "Rust (w/Axum)"
+      readmeName: "Rust"
       branch: rust-axum
       projectFile: Cargo.toml
       configFile: Cargo.toml
@@ -95,7 +95,7 @@
       main: src/main.rs
       devCommand: "cargo run"
     "Hyper":
-      readmeName: "Rust (w/Hyper)"
+      readmeName: "Rust"
       branch: rust-hyper
       projectFile: Cargo.toml
       configFile: Cargo.toml
