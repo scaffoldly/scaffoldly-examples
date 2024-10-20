@@ -1,30 +1,62 @@
 # Alphabetically Ordered Please!!
 # NOTE: create-scaffoldly-app pulls from this list
 "Frameworks":
-  ".NET":
-    "C#":
-      branch: dotnet-csharp
+  # ".NET":
+  #   "C#":
+  #     branch: dotnet-csharp
+  #     projectFile: DotNetCSharpApp.csproj
+  #     type: dotnet
   "Go":
     "ConnectRPC":
       branch: go-connect
+      projectFile: go.mod
+      type: go
+      rm: ["go.sum"]
   "Node":
     "ConnectRPC (with Fastify)":
       branch: node-connect
+      projectFile: package.json
+      type: node
+      rm: ["package-lock.json"]
     "ExpressJS":
       branch: node-express
+      projectFile: package.json
+      type: node
+      rm: ["package-lock.json"]
     "Next.js":
       branch: node-nextjs
+      projectFile: package.json
+      type: node
+      rm: ["package-lock.json"]
     "Next.js (in Export mode)":
       branch: node-nextjs-export
+      projectFile: package.json
+      type: node
+      rm: ["package-lock.json"]
     "Next.js (in Standalone mode)":
       branch: node-nextjs-standalone
+      projectFile: package.json
+      type: node
+      rm: ["package-lock.json"]
     "React (with Vite)":
       branch: node-react-vite
+      projectFile: package.json
+      type: node
+      rm: ["package-lock.json"]
   Python:
     "Flask (with Poetry)":
       branch: python-flask-poetry
+      projectFile: pyproject.toml
+      type: python
+      rm: ["poetry.lock"]
   Rust:
     "Axum":
       branch: rust-axum
+      projectFile: Cargo.toml
+      type: rust
+      rm: ["Cargo.lock"]
     "Hyper":
       branch: rust-hyper
+      projectFile: Cargo.toml
+      type: rust
+      rm: ["Cargo.lock"]
