@@ -10,7 +10,8 @@
       "runtime": "golang:1.22-alpine3.20",
       "files": ["bin"],
       "scripts": {
-        "build": "go build -o bin/ ./cmd/server ./cmd/client",
+        "install": "go mod tidy",
+        "build": "go build -o bin/ ./cmd/server",
         "start": "server"
       }
     }
