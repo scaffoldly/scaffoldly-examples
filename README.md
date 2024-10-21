@@ -2,6 +2,16 @@
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=rust-axum&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
+## ✨ Quickstart
+
+Run the following command to create your own copy of this application:
+
+```bash
+npx scaffoldly create app --template rust-axum
+```
+
+## Manual Setup
+
 ## Introduction
 
 [Scaffoldly](https://github.com/scaffoldly/scaffoldly) allows you to run **any HTTP server** inside AWS Lambda. It requires **no code** changes to your existing server and a simple configuration in the project's `Cargo.toml`. Deployments can be done locally or in GitHub Actions (see below).
