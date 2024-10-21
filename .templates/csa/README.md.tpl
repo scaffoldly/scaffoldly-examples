@@ -12,14 +12,22 @@ Open [http://<%= handler %>](http://<%= handler %>) with your browser or `curl` 
 
 You can start editing the application by modifying [`<%= main %>`](<%= main %>).
 
-## Deploy using Scaffoldly
+## Secrets
 
-The application configuration which [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) uses is located in [`<%= configFile %>`](<%= configFile %>)
+Secrets for this application are managed using [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) which is configured in [`<%= configFile %>`](<%= configFile %>).
 
-The easiest way to deploy your application is to use the [`npx scaffoldly deploy`](https://scaffoldly.dev/docs/cli) command:
+1. Create a repository secret in GitHub (e.g. `MY_SECRET`)
+1. Create a reference to it in `.env` (e.g. `MY_SECRET=${secrets:MY_SECRET:-some-default-value}`)
+   1. [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) will inject it a **build time** and **run time**.
+1. Read the secret using environment variables (e.g. `process.env.MY_SECRET`)
 
-```bash
-npx scaffoldly deploy
-```
+Check out Scaffoldly [documentation](https://scaffoldly.dev/docs/config/secrets) for more details.
 
-Check out our [documentation](https://scaffoldly.dev/docs) for more details.
+## Deployment
+
+This application deploys using [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) which is configured in [`<%= configFile %>`](<%= configFile %>).
+
+- **Automatic**: A `git push` to `main` will trigger the [`scaffoldly.yml`](.github/workflows/scaffoldly.yml) GitHub Action to perform a deploy.
+- **Manual**: Run [`npx scaffoldly deploy`](https://scaffoldly.dev/docs/cli) from the Command Line will perform a deploy.
+
+Check out Scaffoldly [documentation](https://scaffoldly.dev/docs) for more details.
