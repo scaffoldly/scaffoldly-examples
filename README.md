@@ -2,6 +2,16 @@
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-flask-poetry&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
+## ✨ Quickstart
+
+Run the following command to create your own copy of this application:
+
+```bash
+npx scaffoldly create app --template python-flask-poetry
+```
+
+## Manual Setup
+
 This application was generated with the following command:
 
 1. `poetry new flask-poetry && cd flask-poetry`
