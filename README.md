@@ -10,6 +10,14 @@ In this example, we're running a [hyper](https://crates.io/crates/hyper) server 
 
 ⭐️ Please [give `scaffoldly` a star](https://github.com/scaffoldly/scaffoldly) on GitHub! ⭐️
 
+## ✨ Quickstart
+
+Run the following command to create your own copy of this application:
+
+```bash
+npx scaffoldly create app --template rust-hyper
+```
+
 ## Project Creation
 
 This application was created by following the following instructions:
