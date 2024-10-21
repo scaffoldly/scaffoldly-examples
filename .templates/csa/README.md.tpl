@@ -17,11 +17,11 @@ You can start editing the application by modifying [`<%= main %>`](<%= main %>).
 Secrets for this application are managed using [`scaffoldly`](https://github.com/scaffoldly/scaffoldly).
 
 1. Create a repository secret in GitHub (e.g. `MY_SECRET`)
-1. Create a reference to it in `.env` (e.g. `MY_SECRET=${MY_SECRET:-some-default-value}`)
-   1. [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) will inject it a **build time** and **run time**.
+1. Create a reference to it in a `.env` file (e.g. `MY_SECRET=${MY_SECRET:-some-default-value}`)
+   1. It will be available at **build time** and **run time**.
 1. Read the secret using environment variables (e.g. `process.env.MY_SECRET`)
 
-Check out Scaffoldly [documentation](https://scaffoldly.dev/docs/config/secrets) for more details.
+Check out Scaffoldly [documentation](https://scaffoldly.dev/docs) for more details.
 
 ## Deployment
 
