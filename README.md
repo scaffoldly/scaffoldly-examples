@@ -10,23 +10,23 @@ See the various examples below for running various frameworks in AWS Lambda usin
 
 ⭐️ Please [give `scaffoldly` a star](https://github.com/scaffoldly/scaffoldly) on GitHub! ⭐️
 
-<!--
+
 ## Getting Started
 
-> :warning: **UPDATE 2024-10-06**: **`create-scaffoldly-app`**: will be ready in a few days!
+All of the [Frameworks](#frameworks) below below can be created with the [`create-scaffoldly-app`](https://www.npmjs.com/package/create-scaffoldly-app) utility.
 
-All of the [Frameworks](#frameworks) below below can be duplicated with the [`create-scaffoldly-app`](https://www.npmjs.com/package/create-scaffoldly-app) utility.
-
-_Note_: Having `npm` or `yarn` installed is necesssary.
+_Note_: Having `npx`, `npm`, or `yarn` installed is necesssary.
 
 ```bash
+npx scaffoldly create app
+# or
 npm create scaffoldly-app
 # or
 yarn create scaffoldly-app
 ```
 
 Alternatively, browse the various [Frameworks](#frameworks) below and add `scaffoldly` to an existing project manually. See the [docs](https://scaffoldly.dev/docs) for more information.
--->
+
 
 ## Frameworks
 
