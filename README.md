@@ -51,8 +51,8 @@ In the project's [`package.json`](./package.json) file, the `scaffoldly` configu
           "package-lock.json"
         ],
         "scripts": {
-          "install": "npm ci",
-          "start": "DEBUG=test:* npm start"
+          "install": "npm install",
+          "start": "DEBUG=* npm start"
         }
       }
     ]

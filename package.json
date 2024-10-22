@@ -27,8 +27,8 @@
           "package-lock.json"
         ],
         "scripts": {
-          "install": "npm ci",
-          "start": "DEBUG=test:* npm start"
+          "install": "npm install",
+          "start": "DEBUG=* npm start"
         }
       }
     ]
