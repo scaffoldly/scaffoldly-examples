@@ -38,7 +38,7 @@
           "package-lock.json"
         ],
         "scripts": {
-          "install": "npm ci",
+          "install": "npm install",
           "dev": "next dev",
           "build": "next build",
           "start": "node server.js"

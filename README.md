@@ -64,7 +64,7 @@ In the project's [`package.json`](package.json) file, the `scaffoldly` configura
         "name": "next",
         "files": ["package.json", ".next", "package-lock.json"],
         "scripts": {
-          "install": "npm ci",
+          "install": "npm install",
           "dev": "next dev",
           "build": "next build",
           "start": "node server.js"
