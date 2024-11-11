@@ -1,41 +1,53 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+# A Python Flask App Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-flask&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
 ## ✨ Quickstart
 
 Run the following command to create your own copy of this application:
 
 ```bash
-npx scaffoldly create app --template CHANGEME-BRANCHNAME
+npx scaffoldly create app --template python-flask
 ```
+
+Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ## Manual Setup
 
-This application was generated with the following command:
+This application was created by following these steps:
 
-```bash
-CHANGEME-CREATECOMMAND
-```
+1. Added an [`app.py`](./app.py) as the [Minimal Application](https://flask.palletsprojects.com/en/stable/quickstart/#a-minimal-application) from Flask documentation
+1. Added a [`requirements.txt`](./app.py) which installs `Flask` and `gunicorn`.
 
-✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
-
-Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
+✨ No other modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
 
 ### Working example
 
-[CHANGEME-URL](CHANGEME-URL)
+[https://bmrroucx2eidhwiplrnme3l6ta0qnqwp.lambda-url.us-east-1.on.aws](https://bmrroucx2eidhwiplrnme3l6ta0qnqwp.lambda-url.us-east-1.on.aws)
 
 ## First, Scaffoldly Config was added...
 
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
+In the [`scaffoldly.json`](./scaffoldly.json) file, the applications configuration was added:
 
-- Note 1
-- Note 2
+- `app.py` is copied
+- `requirements.txt` is installed using `pip`
+- `start` runs `gunicorn app:app`
 
+```json
+{
+  "name": "flask",
+  "runtime": "python:3.12",
+  "handler": "localhost:8000",
+  "files": ["app.py"],
+  "packages": ["pip:requirements.txt"],
+  "memorySize": 1024,
+  "scripts": {
+    "start": "gunicorn app:app"
+  }
+}
 ```
-CHANGEME-CONFIG
-```
+
+💡 Run `npx scaffoldly show dockerfile` to see the `Dockerfile` that will be used during the build.
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
 
@@ -51,10 +63,10 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
+   🆔 App Identity: arn:aws:iam::123456789012:role/flask-094a345a
    📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
+   📦 Image Size: 1.08 GB
+   🌎 URL: https://bmrroucx2eidhwiplrnme3l6ta0qnqwp.lambda-url.us-east-1.on.aws
 ```
 
 ## GitHub Action added for CI/CD
