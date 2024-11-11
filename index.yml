@@ -83,7 +83,11 @@
       rm: []
       handler: "localhost:8000"
       main: app.py
-      devCommand: "gunicorn app:app"
+      setupCommands:
+        - python -m venv .venv
+        - source .venv/bin/activate
+        - pip install -r requirements.txt
+      devCommand: "gunicorn app:app --reload"
     "Flask (with Poetry)":
       readmeName: "Flask"
       branch: python-flask-poetry
