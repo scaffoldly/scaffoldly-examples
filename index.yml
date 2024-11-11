@@ -74,6 +74,16 @@
       main: src/App.tsx
       devCommand: "npm run dev"
   Python:
+    "Flask":
+      readmeName: "Flask"
+      branch: python-flask
+      configFile: scaffoldly.json
+      projectFile: scaffoldly.json
+      type: python
+      rm: []
+      handler: "localhost:8000"
+      main: app.py
+      devCommand: "gunicorn app:app"
     "Flask (with Poetry)":
       readmeName: "Flask"
       branch: python-flask-poetry

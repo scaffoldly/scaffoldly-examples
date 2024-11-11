@@ -58,6 +58,7 @@ jobs:
           rm -fr .github
           rm .gitignore
           rm .gitmodules
+          rm index.yml
           rm README.md
           git add .
           git commit -m "Clean directory" || echo "No changes to commit"
