@@ -1,14 +1,11 @@
 {
-  "name": "scaffoldly-examples",
+  "name": "python-gpt2",
   "runtime": "python:3.12",
   "handler": "localhost:8000",
-  "files": [
-    "app.py"
-  ],
-  "packages": [
-    "pip:requirements.txt"
-  ],
+  "files": ["app.py"],
+  "packages": ["pip:requirements.txt", "huggingface:openai-community/gpt2"],
   "scripts": {
     "start": "gunicorn app:app"
-  }
+  },
+  "memorySize": 1024
 }
