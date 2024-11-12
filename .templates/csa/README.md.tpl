@@ -2,13 +2,13 @@ This is a <%= readmeName %> application created with [`create-scaffoldly-app`](h
 
 ## Development
 
-<%= if (setupCommands) { -%>
+<%- if (setupCommands) { -%>
 Setup the project:
 
 ```bash
 <%= setupCommands.join('\n') -%>
 ```
-<%= } -%>
+<%- } -%>
 
 Run the development server:
 
