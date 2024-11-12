@@ -17,26 +17,12 @@ env:
 
 jobs:
   deploy:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Docker
-        run: |
-          brew install --cask docker
-
-      - name: Start Docker service
-        run: open /Applications/Docker.app
-
-      - name: Wait for Docker to start
-        run: |
-          while ! docker info > /dev/null 2>&1; do
-            echo "Waiting for Docker to start..."
-            sleep 1
-          done
-
       - name: Deploy
-        uses: scaffoldly/scaffoldly@v1
+        uses: scaffoldly/scaffoldly@main
         with:
           secrets: ${{ toJSON(secrets) }}
