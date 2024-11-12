@@ -46,10 +46,6 @@
 	path = python/flask-poetry
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = python-flask-poetry
-[submodule "python/gpt2"]
-	path = python/gpt2
-	url = git@github.com:scaffoldly/scaffoldly-examples.git
-	branch = python-gpt2
 [submodule "python/flask"]
 	path = python/flask
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
