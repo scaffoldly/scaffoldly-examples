@@ -79,7 +79,7 @@
       branch: python-flask
       configFile: scaffoldly.json
       projectFile: scaffoldly.json
-      type: python
+      type: standalone
       rm: []
       handler: "localhost:8000"
       main: app.py
