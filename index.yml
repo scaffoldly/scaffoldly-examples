@@ -88,6 +88,20 @@
         - source .venv/bin/activate
         - pip install -r requirements.txt
       devCommand: "gunicorn app:app --reload"
+    "Flask (w/GPT2 Model)":
+      readmeName: "Flask w/Models from Hugging Face"
+      branch: python-gpt2
+      configFile: scaffoldly.json
+      projectFile: scaffoldly.json
+      type: standalone
+      rm: []
+      handler: "localhost:8000"
+      main: app.py
+      setupCommands:
+        - python -m venv .venv
+        - source .venv/bin/activate
+        - pip install -r requirements.txt
+      devCommand: "gunicorn app:app --reload"
     "Flask (with Poetry)":
       readmeName: "Flask"
       branch: python-flask-poetry
