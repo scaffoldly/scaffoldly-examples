@@ -1,4 +1,4 @@
-# A Python Flask App w/GPT2 (via Huggingface) Running On AWS Lambda
+# A Python Flask App w/GPT2 (via Hugging Face) Running On AWS Lambda
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-gpt2&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
@@ -10,14 +10,14 @@ Run the following command to create your own copy of this application:
 npx scaffoldly create app --template python-gpt2
 ```
 
-> [!WARNING]
->
-> - Downloaded models are pre-downloaded at build time and **they are large**. The Lambda Function will have a **large image size**.
-> - Running inference on a CPU takes time. The CPU for the Lambda Function can be increased by setting the `memorySize` option in `scaffoldly.json`.
-
 Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
 ## Manual Setup
+
+> [!WARNING]
+>
+> - Models are pre-downloaded at build time and **they are large**. The Lambda Function will have a **large image size**.
+> - Running inference on a CPU **takes time**. The CPU for the Lambda Function can be increased by setting the `memorySize` option in `scaffoldly.json`.
 
 This application was created by following these steps:
 
