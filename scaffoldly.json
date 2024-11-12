@@ -1,0 +1,14 @@
+{
+  "name": "scaffoldly-examples",
+  "runtime": "python:3.12",
+  "handler": "localhost:8000",
+  "files": [
+    "app.py"
+  ],
+  "packages": [
+    "pip:requirements.txt"
+  ],
+  "scripts": {
+    "start": "gunicorn app:app"
+  }
+}

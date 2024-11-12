@@ -1,95 +1,43 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+This is a Flask application created with [`create-scaffoldly-app`](https://www.npmjs.com/package/create-scaffoldly-app).
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+## Development
 
-## ✨ Quickstart
-
-Run the following command to create your own copy of this application:
+Setup the project:
 
 ```bash
-npx scaffoldly create app --template CHANGEME-BRANCHNAME
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-## Manual Setup
-
-This application was generated with the following command:
+Run the development server:
 
 ```bash
-CHANGEME-CREATECOMMAND
+gunicorn app:app --reload
 ```
 
-✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
+Open [http://localhost:8000](http://localhost:8000) with your browser or `curl` to see running application.
 
-Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
+You can start editing the application by modifying [`app.py`](app.py)
 
-### Working example
+## Deployment
 
-[CHANGEME-URL](CHANGEME-URL)
+This application deploys using [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) which is configured in [`scaffoldly.json`](scaffoldly.json) [(docs)](https://scaffoldly.dev/docs).
 
-## First, Scaffoldly Config was added...
+- **Automatic**: A `git push` to `main` will trigger [`scaffoldly/scaffoldly@v1`](https://github.com/marketplace/actions/scaffoldly) in a [GitHub Action](.github/workflows/scaffoldly.yml) to perform a deploy.
+- **Manual**: Run [`npx scaffoldly deploy`](https://scaffoldly.dev/docs/cli) from the Command Line will perform a deploy.
 
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
+## Secrets
 
-- Note 1
-- Note 2
+Secrets for this application are managed using [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) [(docs)](https://scaffoldly.dev/docs).
 
-```
-CHANGEME-CONFIG
-```
+### Build Time Secrets
 
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
+1. Set the value of the secret in the shell's envirionment.
+1. Read the secret using environment variables in the build scripts.
 
-## Then, deployed to AWS Lambda
+### Run Time Secrets
 
-```bash
-npx scaffoldly deploy
-```
-
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) for details on the `scaffoldly deploy` command.
-
-### After deploy the app is available on a public URL
-
-```bash
-🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
-   📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
-```
-
-## GitHub Action added for CI/CD
-
-A [`scaffoldly.yml`](.github/workflows/scaffoldly.yml) was added to `.github/workflows` so that a push will trigger a deploy
-
-```
-name: Scaffoldly Deploy
-
-# ... snip ...
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Deploy
-        uses: scaffoldly/scaffoldly@v1
-        with:
-          secrets: ${{ toJSON(secrets) }}
-```
-
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/gha/) for additional GitHub Actions directives.
-
-## Questions, Feedback, and Help
-
-Join our [Discussions](https://github.com/scaffoldly/scaffoldly/discussions) on GitHub.
-Join our [Community](https://scaffoldly.dev/community) on Discord.
-
-## License
-
-This code is licensed under the [Apache-2.0](LICENSE.md) license.
-
-The [`scaffoldly`](https://github.com/scaffoldly/scaffoldly) toolchain is licensed under the [FSL-1.1-Apache-2.0](https://github.com/scaffoldly/scaffoldly?tab=License-1-ov-file) license.
-
-Copyright 2024 Scaffoldly LLC
+1. Create a repository secret in GitHub (e.g. `MY_SECRET`) (and your shell's environment).
+1. Create a reference to it in a `.env` file (e.g. `MY_SECRET=${MY_SECRET}`).
+1. Read the secret using environment variables in the application.
