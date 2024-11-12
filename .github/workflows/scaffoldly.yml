@@ -22,11 +22,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      - name: Install Docker
+        run: |
+          brew install --cask docker
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+      - name: Start Docker service
+        run: open /Applications/Docker.app
+
+      - name: Wait for Docker to start
+        run: |
+          while ! docker info > /dev/null 2>&1; do
+            echo "Waiting for Docker to start..."
+            sleep 1
+          done
 
       - name: Deploy
         uses: scaffoldly/scaffoldly@v1
