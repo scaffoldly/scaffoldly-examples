@@ -10,6 +10,7 @@ target/
 
 # Python Stuff
 __pycache__/
+.venv/
 
 # C# Stuff
 bin/
