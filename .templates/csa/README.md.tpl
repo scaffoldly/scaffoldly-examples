@@ -6,7 +6,7 @@ This is a <%= readmeName %> application created with [`create-scaffoldly-app`](h
 Setup the project:
 
 ```bash
-<%= setupCommands.join('\n') -%>
+<%= setupCommands.join('\n') %>
 ```
 <% } %>
 
