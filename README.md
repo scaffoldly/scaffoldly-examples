@@ -4,13 +4,15 @@
 
 ## ✨ Features
 
-- Runs as a Docker Container AWS Lambda
-- Uses Amazon EFS to cache large model files
-- Uses `requirements.txt` to package `pytorch`, etc.
-- **~$0.20/day** to host in AWS Lambda and EFS
+- Runs as a **Docker Container** on **AWS Lambda**
+- Uses **Amazon EFS** to cache large model files
+- Uses `requirements.txt` to package **`pytorch`**, etc.
+- Costs **~$0.20/day** to host in AWS Lambda and EFS
 
-> [!NOTE]  
-> AWS Lambda runs on CPUs, so running `pytorch` is slow. Each request to `gpt2` takes ~20 sec with 1024 MiB memory.
+> [!NOTE]
+>
+> - AWS Lambda uses **CPUs**, therefore running `pytorch` is slow. Each request takes ~20 sec with 1024 MiB memory.
+> - While this is **not production grade**, it is **a cost effective way** to serve models.
 
 ## 🚀 Quickstart
 
@@ -27,6 +29,9 @@
    ```bash
    npx scaffoldly deploy
    ```
+
+> [!TIP]
+> To use a different model than [`openai-community/gpt2`](https://huggingface.co/openai-community/gpt2), update [`scaffoldly.json`](./scaffoldly.json) and [`app.py`](./app.py) with the desired model(s).
 
 Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
