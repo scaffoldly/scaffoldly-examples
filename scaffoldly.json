@@ -3,7 +3,11 @@
   "runtime": "python:3.12",
   "handler": "localhost:8000",
   "files": ["app.py"],
-  "packages": ["pip:requirements.txt", "huggingface:openai-community/gpt2"],
+  "packages": ["pip:requirements.txt"],
+  "resources": ["arn::elasticfilesystem:::file-system/.cache"],
+  "schedules": {
+    "@immediately": "huggingface-cli download openai-community/gpt2"
+  },
   "scripts": {
     "start": "gunicorn app:app"
   },

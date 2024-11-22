@@ -4,46 +4,37 @@
 
 ## ✨ Quickstart
 
-Run the following command to create your own copy of this application:
+1. Create an Amazon EFS File System named `.cache`
 
-```bash
-npx scaffoldly create app --template python-gpt2
-```
+2. Run the following command to create your own copy of this example application:
+
+   ```bash
+   npx scaffoldly create app --template python-gpt2
+   ```
+
+3. Finally, `cd` into the newly created project and run:
+
+   ```bash
+   npx scaffoldly deploy
+   ```
 
 Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and learn more at [scaffoldly.dev](https://scaffoldly.dev)!
 
-## Manual Setup
+## Demo
 
-> [!WARNING]
->
-> - Models are pre-downloaded at build time and **they are large**. The Lambda Function will have a **large image size**.
-> - Running inference on a CPU **takes time**. The CPU for the Lambda Function can be increased by setting the `memorySize` option in `scaffoldly.json`.
+[https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws](https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws)
 
-This application was created by following these steps:
+### Project Configuration
 
-1. Added a [`requirements.txt`](./app.py) which installs `Flask`, `gunicorn`, `torch`, `numpy` and `transformers`.
-1. Added `packages`
-   1. Added `pip:requirements.txt` to do a `pip install` of all packages listed in `requirements.txt`.
-   1. Added `huggingface:openai-community/gpt2` to [`scaffoldly.json`](./scaffoldly.json) as a `package`.
-      - This adds `openai-community/gpt2` to a list of models to download via `huggingface-cli`
-1. Added an [`app.py`](./app.py) to create the `generator` and run it.
+First, an Amazon EFS File System was created in an AWS Account named `.cache`
 
-💡 Run `npx scaffoldly show dockerfile` to see the `Dockerfile` that will be used during the build.
+Then, in the [`scaffoldly.json`](./scaffoldly.json) file, the applications configuration was added:
 
-✨ No other modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
-
-### Working example
-
-[https://mg5s5yi5qwfe6vibg6cknv3e7q0scvjy.lambda-url.us-east-1.on.aws](https://mg5s5yi5qwfe6vibg6cknv3e7q0scvjy.lambda-url.us-east-1.on.aws)
-
-## First, Scaffoldly Config was added...
-
-In the [`scaffoldly.json`](./scaffoldly.json) file, the applications configuration was added:
-
-- `app.py` is copied
-- `requirements.txt` is installed using `pip`
-- `openai-community/gpt2` is installed using `huggingface-cli`
-- `start` runs `gunicorn app:app`
+- [`app.py`](./app.py) is copied
+- [`requirements.txt`](./requirements.txt) is installed using `pip`
+- `resources` finds an EFS file system named `.cache` (created manually)
+- `@immediately` runs `huggingface-cli download` inside Lambda to download models to Amazon EFS after the deploy.
+- `start` runs `gunicorn app:app` to make the model availalbe via an API call
 
 ```json
 {
@@ -51,10 +42,15 @@ In the [`scaffoldly.json`](./scaffoldly.json) file, the applications configurati
   "runtime": "python:3.12",
   "handler": "localhost:8000",
   "files": ["app.py"],
-  "packages": ["pip:requirements.txt", "huggingface:openai-community/gpt2"],
+  "packages": ["pip:requirements.txt"],
+  "resources": ["arn::elasticfilesystem:::file-system/.cache"],
+  "schedules": {
+    "@immediately": "huggingface-cli download openai-community/gpt2"
+  },
   "scripts": {
     "start": "gunicorn app:app"
-  }
+  },
+  "memorySize": 1024
 }
 ```
 
@@ -62,7 +58,7 @@ In the [`scaffoldly.json`](./scaffoldly.json) file, the applications configurati
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
 
-## Then, deployed to AWS Lambda
+### Deployment
 
 ```bash
 npx scaffoldly deploy
@@ -70,17 +66,17 @@ npx scaffoldly deploy
 
 See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) for details on the `scaffoldly deploy` command.
 
-### After deploy the app is available on a public URL
+#### After deploy the app is available on a public URL
 
 ```bash
 🚀 Deployment Complete!
    🆔 App Identity: arn:aws:iam::123456789012:role/python-gpt2-54463086
    📄 Env Files: .env.main, .env
-   📦 Image Size: 7.39 GB
-   🌎 URL: https://mg5s5yi5qwfe6vibg6cknv3e7q0scvjy.lambda-url.us-east-1.on.aws
+   📦 Image Size: 1.76 GB
+   🌎 URL: https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws
 ```
 
-## GitHub Action added for CI/CD
+#### GitHub Action for Autommated Deploys
 
 A [`scaffoldly.yml`](.github/workflows/scaffoldly.yml) was added to `.github/workflows` so that a push will trigger a deploy
 

@@ -23,6 +23,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy
-        uses: scaffoldly/scaffoldly@main
+        uses: scaffoldly/scaffoldly@v1
         with:
           secrets: ${{ toJSON(secrets) }}

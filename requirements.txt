@@ -3,3 +3,4 @@ gunicorn ~= 23.0
 torch ~= 2.5
 numpy ~= 2.1
 transformers ~= 4.46
+huggingface_hub[cli] ~= 0.26
