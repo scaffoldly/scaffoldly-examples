@@ -2,7 +2,17 @@
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-gpt2&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
-## ✨ Quickstart
+## ✨ Features
+
+- Runs as a Docker Container AWS Lambda
+- Uses Amazon EFS to cache large model files
+- Uses `requirements.txt` to package `pytorch`, etc.
+- **~$0.20/day** to host in AWS Lambda and EFS
+
+> [!NOTE]  
+> AWS Lambda runs on CPUs, so running `pytorch` is slow. Each request to `gpt2` takes ~20 sec with 1024 MiB memory.
+
+## 🚀 Quickstart
 
 1. Create an Amazon EFS File System named `.cache`
 
