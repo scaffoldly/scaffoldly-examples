@@ -1,3 +1,4 @@
+--find-links https://download.pytorch.org/whl/cpu
 Flask ~= 3.0
 gunicorn ~= 23.0
 torch ~= 2.5

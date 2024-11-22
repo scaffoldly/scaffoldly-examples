@@ -6,12 +6,13 @@
 
 - Runs as a **Docker Container** on **AWS Lambda**
 - Uses **Amazon EFS** to cache large model files
-- Uses `requirements.txt` to package **`pytorch`**, etc.
-- Costs **~$0.20/day** to host in AWS Lambda and EFS
+- Uses `requirements.txt` to package **`torch`**, etc.
+- Costs **~$0.20/day** to host in AWS Lambda, ECR, and EFS
 
 > [!NOTE]
 >
-> - AWS Lambda uses **CPUs**, therefore running `pytorch` is slow. Each request takes ~20 sec with 1024 MiB memory.
+> - AWS Lambda uses **CPUs**, therefore running `pytorch` is slow.
+> - The first request while the model is loaded **takes ~20s**, subsequent requests take **~5-20s**.
 > - While this is **not production grade**, it is **a cost effective way** to serve models.
 
 ## 🚀 Quickstart
