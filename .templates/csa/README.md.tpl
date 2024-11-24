@@ -2,7 +2,7 @@ This is a <%= readmeName %> application created with [`create-scaffoldly-app`](h
 
 ## Development
 
-<% if (setupCommands) { -%>
+<% if (typeof setupCommands !== 'undefined' && setupCommands.length > 0) { -%>
 Setup the project:
 
 ```bash
