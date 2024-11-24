@@ -1,6 +1,6 @@
-# A Python Flask App w/GPT2 (via Hugging Face) Running On AWS Lambda
+# A Hugging Face Model Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-gpt2&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=python-huggingface&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
 ## ✨ Features
 
@@ -22,7 +22,7 @@
 2. Run the following command to create your own copy of this example application:
 
    ```bash
-   npx scaffoldly create app --template python-gpt2
+   npx scaffoldly create app --template python-huggingface
    ```
 
 3. Finally, `cd` into the newly created project and run:
@@ -54,7 +54,7 @@ Then, in the [`scaffoldly.json`](./scaffoldly.json) file, the applications confi
 
 ```json
 {
-  "name": "python-gpt2",
+  "name": "python-huggingface",
   "runtime": "python:3.12",
   "handler": "localhost:8000",
   "files": ["app.py"],
@@ -86,7 +86,7 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
 
 ```bash
 🚀 Deployment Complete!
-   🆔 App Identity: arn:aws:iam::123456789012:role/python-gpt2-54463086
+   🆔 App Identity: arn:aws:iam::123456789012:role/python-huggingface-54463086
    📄 Env Files: .env.main, .env
    📦 Image Size: 1.76 GB
    🌎 URL: https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws

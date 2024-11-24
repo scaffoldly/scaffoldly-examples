@@ -1,5 +1,5 @@
 {
-  "name": "python-gpt2",
+  "name": "python-huggingface",
   "runtime": "python:3.12",
   "handler": "localhost:8000",
   "files": ["app.py"],
