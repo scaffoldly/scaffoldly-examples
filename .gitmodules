@@ -50,7 +50,7 @@
 	path = python/flask
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = python-flask
-[submodule "python/gpt2"]
-	path = python/gpt2
+[submodule "python/huggingface"]
+	path = python/huggingface
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
-	branch = python-gpt2
+	branch = python-huggingface
