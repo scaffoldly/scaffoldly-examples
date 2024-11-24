@@ -6,5 +6,5 @@ generator = pipeline('text-generation', model='openai-community/gpt2')
 
 @app.route("/")
 def hello_world():
-    output = generator("Hello, world,")
+    output = generator("Hello, world! I")
     return output[0]['generated_text']
