@@ -11,6 +11,7 @@ permissions:
 env:
   # AWS_REGION: us-east-1 # Optional, defaults to us-east-1
   AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+  SLY_DEBUG: true
 
 jobs:
   deploy:
