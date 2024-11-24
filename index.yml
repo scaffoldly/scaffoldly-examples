@@ -88,9 +88,18 @@
         - source .venv/bin/activate
         - pip install -r requirements.txt
       devCommand: "gunicorn app:app --reload"
-    "Flask (w/GPT2 Model)":
-      readmeName: "Flask w/Models from Hugging Face"
-      branch: python-gpt2
+    "Flask (with Poetry)":
+      readmeName: "Flask"
+      branch: python-flask-poetry
+      projectFile: pyproject.toml
+      type: python
+      rm: ["poetry.lock"]
+      handler: "localhost:5000"
+      main: server/__init__.py
+      devCommand: "poetry run flask run"
+    "Hugging Face (w/Flask)":
+      readmeName: "Hugging Face (w/Flask)"
+      branch: python-huggingface
       configFile: scaffoldly.json
       projectFile: scaffoldly.json
       type: standalone
@@ -102,15 +111,6 @@
         - source .venv/bin/activate
         - pip install -r requirements.txt
       devCommand: "gunicorn app:app --reload"
-    "Flask (with Poetry)":
-      readmeName: "Flask"
-      branch: python-flask-poetry
-      projectFile: pyproject.toml
-      type: python
-      rm: ["poetry.lock"]
-      handler: "localhost:5000"
-      main: server/__init__.py
-      devCommand: "poetry run flask run"
   Rust:
     "Axum":
       readmeName: "Rust"
