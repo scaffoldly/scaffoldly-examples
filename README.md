@@ -11,7 +11,8 @@
 
 > [!NOTE]
 >
-> - AWS Lambda uses **CPUs**, therefore running `pytorch` is slow.
+> - AWS Lambda uses **CPUs**, therefore running `pytorch` is a little slow.
+> - The first deployment takes **~5m** while the container is built and models are cached, subsequent deployments take **~1m**.
 > - The first request while the model is loaded **takes ~20s**, subsequent requests take **~5-20s**.
 > - While this is **not production grade**, it is **a cost effective way** to serve models.
 
