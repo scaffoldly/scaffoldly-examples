@@ -4,9 +4,9 @@
 
 ## ✨ Features
 
-- Runs as a **Docker Container** on **AWS Lambda**
+- Runs as a **Single Docker Container** on **AWS Lambda**
 - Uses **Amazon EFS** to cache large model files
-- Uses `requirements.txt` to package **`torch`**, etc.
+- Uses **`requirements.txt`** to package **`torch`**, etc into the container.
 - Costs **~$0.20/day** to host in AWS Lambda, ECR, and EFS
 
 > [!NOTE]
