@@ -39,7 +39,7 @@ Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples
 
 ## Demo
 
-[https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws](https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws)
+[https://mrrva4a2ncoydup72wocmha6l40xojwg.lambda-url.us-east-1.on.aws](https://mrrva4a2ncoydup72wocmha6l40xojwg.lambda-url.us-east-1.on.aws)
 
 ### Project Configuration
 
@@ -90,7 +90,7 @@ See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) fo
    🆔 App Identity: arn:aws:iam::123456789012:role/python-huggingface-54463086
    📄 Env Files: .env.main, .env
    📦 Image Size: 1.76 GB
-   🌎 URL: https://qk3hfznxdjodtbmvzzp2sx5rdq0rfcpn.lambda-url.us-east-1.on.aws
+   🌎 URL: https://mrrva4a2ncoydup72wocmha6l40xojwg.lambda-url.us-east-1.on.aws
 ```
 
 #### GitHub Action for Autommated Deploys
