@@ -1,0 +1,13 @@
+{
+  "name": "ollama",
+  "runtime": "ollama/ollama:0.4.7",
+  "handler": "localhost:11434",
+  "resources": ["arn::elasticfilesystem:::file-system/.cache"],
+  "schedules": {
+    "@immediately": "HOME=$XDG_CACHE_HOME OLLAMA_HOST=$URL ollama pull llama3.2:1b"
+  },
+  "scripts": {
+    "start": "HOME=$XDG_CACHE_HOME ollama serve"
+  },
+  "memorySize": 3008
+}

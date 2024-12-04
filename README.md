@@ -1,85 +1,176 @@
-# A CHANGEME-FRAMEWORK App Running On AWS Lambda
+# Ollama Running On AWS Lambda
 
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=CHANGEME-BRANCHNAME&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/scaffoldly/scaffoldly-examples/scaffoldly.yml?branch=ollama&link=https%3A%2F%2Fgithub.com%2Fscaffoldly%2Fscaffoldly-examples%2Factions)
 
-## ✨ Quickstart
+## 🚀 Working Example
 
-Run the following command to create your own copy of this application:
-
-```bash
-npx scaffoldly create app --template CHANGEME-BRANCHNAME
-```
-
-## Manual Setup
-
-This application was generated with the following command:
+> [!NOTE]
+>
+> - AWS Lambda uses **CPUs**, therefore running `generate` / `chat` is a little slow.
+> - The first deployment takes **~5m** while the container is built and models are cached, subsequent deployments take **~1m**.
+> - The first request while the model is loaded **takes ~20s**, subsequent requests take **~5-20s**.
+> - While this is **not production grade**, it is **a cost effective way** to serve models.
 
 ```bash
-CHANGEME-CREATECOMMAND
+curl https://wm4s6cxkwua4ncx3skpdtdx27a0qzbnd.lambda-url.us-east-1.on.aws/api/generate -d '{
+  "model": "llama3.2:1b",
+  "prompt":"Why is the sky blue?"
+}'
 ```
 
-✨ No modifications or SDKs were made or added to the code to "make it work" in AWS Lambda.
+- 🙏 Please, please, please don't abuse this endpoint, **Scaffoldly is Open Source** (a.k.a. cash strapped 🤣) and we're hosting it for demonstration purposes only!
+- Please [consider donating](https://github.com/sponsors/scaffoldly) if you like what Scaffoldly is doing!
+- Check out our [other examples](https://github.com/scaffoldly/scaffoldly-examples)
+- Give our [Tooling](https://github.com/scaffoldly/scaffoldly) and [Examples](https://github.com/scaffoldly/scaffoldly-examples) repositories a ⭐️ if you like what you see!
 
-Check out our other [examples](https://github.com/scaffoldly/scaffoldly-examples) and Learn more at [scaffoldly.dev](https://scaffoldly.dev)!
+## ✨ Host Your Own!
 
-### Working example
+> [!TIP]
+> To use a different model than [`llama3.2:1b`](https://ollama.com/library/llama3.2:1b), update [`scaffoldly.json`](./scaffoldly.json) with the desired model(s).
 
-[CHANGEME-URL](CHANGEME-URL)
-
-## First, Scaffoldly Config was added...
-
-In the project's [`CHANGEME-CONFIGFILE`](CHANGEME-CONFIGFILE) file, the `scaffoldly` configuration was added:
-
-- Note 1
-- Note 2
-
-```
-CHANGEME-CONFIG
-```
-
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/config/) for additional configuration directives.
-
-## Then, deployed to AWS Lambda
+1. Run the following command to create your own copy of this application:
 
 ```bash
+npx scaffoldly create app --template ollama
+```
+
+2. Create an [EFS Filesystem in AWS](https://console.aws.amazon.com/efs/home), give it a `Name` of `.cache` (to match [`scaffoldly.json`](scaffoldly.json))
+
+3. Finally, deploy:
+
+```bash
+cd my-app
 npx scaffoldly deploy
 ```
 
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/cli/#scaffoldly-deploy) for details on the `scaffoldly deploy` command.
+You will see output that looks like:
 
-### After deploy the app is available on a public URL
+```
+🟠 App framework not detected. Using `scaffoldly.json` for configuration.
 
-```bash
+✅ Updated Identity: arn:aws:sts::123456789012:assumed-role/aws-examples@scaffold.ly/cnuss
+✅ Updated ECR Repository: 123456789012.dkr.ecr.us-east-1.amazonaws.com/ollama
+✅ Updated Local Image Digest: sha256:f7ee27705d66c64a250982d6ee8282d5338a4989ae95c5ac4453a15c264efc97
+✅ Updated Secret: arn:aws:secretsmanager:us-east-1:123456789012:secret:ollama@ollama-yaVNCp
+✅ Updated EFS Access Point: arn:aws:elasticfilesystem:us-east-1:123456789012:access-point/fsap-0b0e5506324efd541
+✅ Updated IAM Role: ollama-0447aaae
+✅ Updated IAM Role Policy: ollama
+✅ Updated Lambda Function: ollama
+✅ Updated Function URL: https://wm4s6cxkwua4ncx3skpdtdx27a0qzbnd.lambda-url.us-east-1.on.aws
+✅ Updated Schedule Group: ollama-0447aaae
+✅ Updated Local Image: 123456789012.dkr.ecr.us-east-1.amazonaws.com/ollama:0.0.0-0-0447aaae
+✅ Updated Local Image Digest: sha256:320447c49d08d109c4fc1702acc24768657a9a09e4e0eb90f8b32051500664ba
+✅ Updated Secret: arn:aws:secretsmanager:us-east-1:123456789012:secret:ollama@ollama-yaVNCp
+✅ Updated Lambda Function: ollama
+✅ Updated Function Code: ollama@sha256:320447c49d08d109c4fc1702acc24768657a9a09e4e0eb90f8b32051500664ba
+✅ Updated Function Alias: ollama (version: 4)
+✅ Updated Function Policies: InvokeFunctionUrl
+✅ Updated Function URL: https://wm4s6cxkwua4ncx3skpdtdx27a0qzbnd.lambda-url.us-east-1.on.aws
+✅ Updated Network Interface: eni-0dc0e11444fa19715
+✅ Created Invocation of `( HOME=$XDG_CACHE_HOME OLLAMA_HOST=$URL ollama pull llama3.2:1b )`:
+pulling manifest
+   ==> pulling 74701a8c35f6... 100% ▕████████████████▏ 1.3 GB
+   ==> pulling 966de95ca8a6... 100% ▕████████████████▏ 1.4 KB
+   ==> pulling fcc5a6bec9da... 100% ▕████████████████▏ 7.7 KB
+   ==> pulling a70ff7e570d9... 100% ▕████████████████▏ 6.0 KB
+   ==> pulling 4f659a1e86d7... 100% ▕████████████████▏  485 B
+   ==> verifying sha256 digest
+   ==> writing manifest
+   ==> success
+✅ Updated HTTP GET on https://wm4s6cx...s-east-1.on.aws: 200 OK
+
 🚀 Deployment Complete!
-   🆔 App Identity: CHANGEME-IDENTITY
-   📄 Env Files: .env.main, .env
-   📦 Image Size: CHANGEME-IMAGESIZE MB
-   🌎 URL: CHANGEME-URL
+   🆔 App Identity: arn:aws:iam::123456789012:role/ollama-0447aaae
+   📄 Env Files: .env.ollama, .env.main, .env
+   📦 Image Size: 4.81 GB
+   🌎 URL: https://wm4s6cxkwua4ncx3skpdtdx27a0qzbnd.lambda-url.us-east-1.on.aws
 ```
 
-## GitHub Action added for CI/CD
+## 🤨 How It Works
 
-A [`scaffoldly.yml`](.github/workflows/scaffoldly.yml) was added to `.github/workflows` so that a push will trigger a deploy
+- The [`scaffoldly.json`](scaffoldly.json) is converted into a [Multi-Stage Docker Build](#multi-stage-docker-build)
+- A docker build is pushed to [Amazon ECR](#amazon-ecr)
+- A [Lambda Function](#lambda-function) is created to serve the image
+- Models are [cached](#model-caching) to Amazon EFS
+- Requests are [proxied](#request-proxy) to the underlying Ollama server
 
+> [!TIP]
+> This repoistory also comes with a [GitHub Action](.github/workflows/scaffoldly.yml) so that deployments can occur from GitHub instead of being executed manually!
+
+### Multi-Stage Docker Build
+
+After the [project has been created](#-host-your-own), run `npx scaffoldly show dockerfile` to see the resultant Dockerfile:
+
+```Dockerfile
+FROM ollama/ollama:0.4.7 AS install-base
+WORKDIR /var/task
+
+FROM install-base AS build-base
+WORKDIR /var/task
+ENV PATH="/var/task:$PATH"
+COPY . /var/task/
+
+FROM install-base AS package-base
+WORKDIR /var/task
+ENV PATH="/var/task:$PATH"
+
+FROM install-base AS runtime
+WORKDIR /var/task
+ENV PATH="/var/task:$PATH"
+COPY --from=scaffoldly/scaffoldly:1 /linux/arm64/awslambda-entrypoint /var/task/.entrypoint
+CMD [ "( HOME=$XDG_CACHE_HOME ollama serve )" ]
 ```
-name: Scaffoldly Deploy
 
-# ... snip ...
+Running `npx scaffoldly deploy` will:
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+- Infer [`scaffoldly.json`](scaffoldly.json) into a Multi-Stage Docker Build
+- Run the equivalent of `docker build`
+- Setup [Amazon ECR](#amazon-ecr)
+- Create a [Lambda Function](#lambda-function)
 
-      - name: Deploy
-        uses: scaffoldly/scaffoldly@v1
-        with:
-          secrets: ${{ toJSON(secrets) }}
-```
+### Amazon ECR
 
-See the [Scaffoldly Docs](https://scaffoldly.dev/docs/gha/) for additional GitHub Actions directives.
+AWS Lambda requires that Docker Images come from Amazon ECR Private Registries, and it can't run public images either.
+
+Running `npx scaffoldly deploy` will:
+
+- Pull `ollama/ollama:0.4.7` and re-tag it and push it to Amazon ECR as a private image
+- Create an ECR Repository if it doesn't already exist
+- Run the equivalent of `docker push`
+
+### Lambda Function
+
+An AWS Lambda Function is created with the configuration in the [`scaffoldly.json`](scaffoldly.json) file:
+
+Running `npx scaffoldly deploy` will:
+
+- Setup Function Environment Variables from `.env`
+- Deploy the Function with a VPC Configuration and EFS Mounts inferred from [Amazon EFS](#model-caching)
+- Create Lambda Versions and Aliases
+- Set an `ENTRYPOINT` which routes [AWS Lambda HTTP Requests to Ollama](#request-proxy)
+- Create a Lambda Function URL and set it as an environment variable as `URL`
+
+### Model Caching
+
+Model files are large and cached in Amazon EFS. Using the `@immediately` option in the `schedules` directive of [`scaffoldly.json`](scaffoldly.json), the Model is pre-downloaded after the deployment.
+
+Running `npx scaffoldly deploy` will:
+
+- Set up a `XDG_CACHE_HOME` environment to be the EFS Mount on the Lambda Function
+- Use the `OLLAMA_HOST=$URL` envrionment variable to trigger a remote download (on itself)
+- Use the `HOME=$XDG_CACHE_HOME` to direct Ollama where to store files
+- Invoke `ollama pull` once the AWS Lambda Function is finished deploying
+
+### Request Proxy
+
+Finally, Scaffoldly uses the `start` option in the `scripts` directive of [`scaffoldly.json`](scaffoldly.json) to run `ollama serve`.
+
+Running `npx scaffoldly deploy` will:
+
+- Copy the [`awslambda-entrypoint`](https://github.com/scaffoldly/scaffoldly/blob/main/src/awslambda-entrypoint.ts)
+- The `awslambda-entrypoint` reads the `SLY_ROUTES` and `SLY_SERVE` environment variables to start and route requests
+- Requests are converted from the AWS Lambda HTTP Request format back into a HTTP Request forwarded to the Ollama Server.
+- The Ollama Server response is streamed back to the requestor.
 
 ## Questions, Feedback, and Help
 
