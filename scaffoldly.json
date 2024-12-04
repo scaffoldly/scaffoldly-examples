@@ -1,15 +1,15 @@
 {
-  "name": "python-huggingface",
-  "runtime": "python:3.12",
-  "handler": "localhost:8000",
+  "name": "python-open-webui",
+  "runtime": "python:3.11",
+  "handler": "localhost:8080",
   "files": ["app.py"],
-  "packages": ["pip:requirements.txt"],
-  "resources": ["arn::elasticfilesystem:::file-system/.cache"],
+  "packages": ["libsndfile1-dev", "pip:requirements.txt"],
+  "resources": ["arn::elasticfilesystem:::file-system/.cache#XDG_CACHE_HOME"],
   "schedules": {
-    "@immediately": "huggingface-cli download openai-community/gpt2"
+    "@immediately": "mount"
   },
   "scripts": {
-    "start": "gunicorn app:app"
+    "start": "GLOBAL_LOG_LEVEL=DEBUG DATA_DIR=/tmp open-webui serve"
   },
   "memorySize": 1024
 }
