@@ -73,6 +73,20 @@
       handler: "localhost:3000"
       main: src/App.tsx
       devCommand: "npm run dev"
+  Ollama:
+    "Server":
+      readmeName: "Ollama"
+      branch: ollama
+      configFile: scaffoldly.json
+      projectFile: scaffoldly.json
+      type: standalone
+      rm: []
+      handler: "localhost:11434"
+      main: scaffoldly.json
+      setupCommands:
+        - ollama serve
+        - ollama pull llama3.2:1b
+      devCommand: "curl http://localhost:11434/api/generate -d '{\"model\": \"llama3.2:1b\",\"prompt\":\"Why is the sky blue?\"}'"
   Python:
     "Flask":
       readmeName: "Flask"
