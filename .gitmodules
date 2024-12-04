@@ -54,3 +54,7 @@
 	path = python/huggingface
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = python-huggingface
+[submodule "ollama"]
+	path = ollama
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = ollama
