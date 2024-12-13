@@ -21,7 +21,7 @@ const SocketHandler = (_: NextApiRequest, res: NextApiResponseWithSocket) => {
   } else {
     console.log("Socket is initializing...");
 
-    const io = new Server(res.socket.server);
+    const io = new Server(res.socket.server, { transports: ["polling"] });
     res.socket.server.io = io;
 
     io.on("connection", (socket) => {

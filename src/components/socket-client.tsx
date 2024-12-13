@@ -15,7 +15,7 @@ export default function SocketClient() {
 
   const socketInitializer = async () => {
     fetch("/api/socket");
-    socket = io();
+    socket = io({ transports: ["polling"] });
 
     socket.on("connect", () => {
       console.log("connected");
