@@ -58,3 +58,7 @@
 	path = ollama
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = ollama
+[submodule "blueprints/full"]
+	path = blueprints/full
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = blueprints-full
