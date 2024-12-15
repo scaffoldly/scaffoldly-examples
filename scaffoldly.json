@@ -1,0 +1,19 @@
+{
+  "name": "blueprints-full",
+  "runtime": "node:22-alpine",
+  "services": [
+    {
+      "name": "webapp",
+      "src": "webapp",
+      "handler": "localhost:3000",
+      "runtime": "node:22-alpine",
+      "files": ["node_modules", "package.json", ".next", "public"],
+      "scripts": {
+        "install": "npm install",
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+      }
+    }
+  ]
+}
