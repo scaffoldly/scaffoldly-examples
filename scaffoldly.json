@@ -1,6 +1,14 @@
 {
   "name": "blueprints-full",
   "runtime": "node:22-alpine",
+  "resources": [
+    "arn::dynamodb:::table/blueprints-full",
+    "arn::s3:::blueprints-full"
+  ],
+  "routes": {
+    "dynamodb.amazonaws.com": "/api/dynamodb",
+    "s3.amazonaws.com": "/api/s3"
+  },
   "services": [
     {
       "name": "webapp",
