@@ -62,3 +62,7 @@
 	path = blueprints/full
 	url = git@github.com:scaffoldly/scaffoldly-examples.git
 	branch = blueprints-full
+[submodule "go/http"]
+	path = go/http
+	url = git@github.com:scaffoldly/scaffoldly-examples.git
+	branch = go-http
