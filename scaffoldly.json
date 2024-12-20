@@ -2,7 +2,7 @@
   "runtime": "alpine:3.20",
   "handler": "localhost:8080",
   "bin": {
-    "server": "connect:bin/server"
+    "server": "server:bin/server"
   },
   "services": [
     {
