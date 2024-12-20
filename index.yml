@@ -18,6 +18,16 @@
       handler: "localhost:8080"
       main: cmd/server/main.go
       devCommand: "go run cmd/server/main.go"
+    "HTTP":
+      readmeName: "Go HTTP"
+      branch: go-http
+      projectFile: go.mod
+      configFile: scaffoldly.json
+      type: go
+      rm: ["go.sum"]
+      handler: "localhost:8080"
+      main: cmd/server/main.go
+      devCommand: "go run cmd/server/main.go"
   "Node":
     "ConnectRPC (with Fastify)":
       readmeName: "ConnectRPC"
@@ -86,7 +96,7 @@
       setupCommands:
         - ollama serve
         - ollama pull llama3.2:1b
-      devCommand: "curl http://localhost:11434/api/generate -d '{\"model\": \"llama3.2:1b\",\"prompt\":\"Why is the sky blue?\"}'"
+      devCommand: 'curl http://localhost:11434/api/generate -d ''{"model": "llama3.2:1b","prompt":"Why is the sky blue?"}'''
   Python:
     "Flask":
       readmeName: "Flask"

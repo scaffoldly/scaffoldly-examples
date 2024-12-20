@@ -35,21 +35,22 @@ We've created a handful of examples to show how Scaffoldly can be used.
 <!-- Alphbetically Ordered!!! -->
 <!-- ALSO UPDATE ./index.yml for "create-scaffoldly-app" !!! -->
 
-| Language | Framework                   | Example Projects                                                                                          | Public URL                                                                                           |
-| :------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------- |
-| .NET     | C#                          | [`dotnet-csharp`](https://github.com/scaffoldly/scaffoldly-examples/tree/dotnet-csharp)                   | [Function URL](https://wmnaydmf2zp5s7rw4htcw5rcku0cwkfq.lambda-url.us-east-1.on.aws/weatherforecast) |
-| Go       | ConnectRPC                  | [`go-connect`](https://github.com/scaffoldly/scaffoldly-examples/tree/go-connect)                         | [Function URL](https://6m7hwen7ailmu4jkcfe5b23tii0nfnhf.lambda-url.us-east-1.on.aws)                 |
-| Node     | ConnectRPC (with `fastify`) | [`node-connect`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-connect)                     | [Function URL](https://adm2n2urfuewyca33xlh3bmlzy0gqsdh.lambda-url.us-east-1.on.aws)                 |
-| Node     | ExpressJS                   | [`node-express`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-express)                     | [Function URL](https://pbydasw2o3quxi7fu3dyiqomne0noypf.lambda-url.us-east-1.on.aws)                 |
-| Node     | Next.js                     | [`node-nextjs`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs)                       | [Function URL](https://inne3tcyuarfqwqz633ojyg2qe0ldglc.lambda-url.us-east-1.on.aws)                 |
-| Node     | Next.js (`export` mode)     | [`node-nextjs-export`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-export)         | [Function URL](https://jtzom2obx3owx4gn4vluichvze0frzcn.lambda-url.us-east-1.on.aws)                 |
-| Node     | Next.js (`standalone` mode) | [`node-nextjs-standalone`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-standalone) | [Function URL](https://uyf6bj4oqifqnfwivhdsy25giu0eaauf.lambda-url.us-east-1.on.aws)                 |
-| Node     | React (with `vite`)         | [`node-react-vite`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-react-vite)               | [Function URL](https://qgb37tjq2vu4qlejnu2p7zzire0tqtsy.lambda-url.us-east-1.on.aws)                 |
-| Python   | Flask                       | [`python-flask`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-flask)                     | [Function URL](https://bmrroucx2eidhwiplrnme3l6ta0qnqwp.lambda-url.us-east-1.on.aws)                 |
-| Python   | Flask (with `poetry`)       | [`python-flask-poetry`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-flask-poetry)       | [Function URL](https://7dkca5ogwlgdjc66e4wc5braiu0ewgma.lambda-url.us-east-1.on.aws)                 |
-| Python   | Huggingface (with `flask`)  | [`python-huggingface`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-huggingface)         | [Function URL](https://mrrva4a2ncoydup72wocmha6l40xojwg.lambda-url.us-east-1.on.aws)                 |
-| Rust     | Axum                        | [`rust-axum`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-axum)                           | [Function URL](https://yqbqbyyukepkhoony3vjtjhxva0ihedb.lambda-url.us-east-1.on.aws)                 |
-| Rust     | Hyper                       | [`rust-hyper`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-hyper)                         | [Function URL](https://x3nlq7rmjc675skupaksowqut40fflpc.lambda-url.us-east-1.on.aws)                 |
+| Language | Framework                   | Example Projects                                                                                          |
+| :------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------- |
+| .NET     | C#                          | [`dotnet-csharp`](https://github.com/scaffoldly/scaffoldly-examples/tree/dotnet-csharp)                   |
+| Go       | ConnectRPC                  | [`go-connect`](https://github.com/scaffoldly/scaffoldly-examples/tree/go-connect)                         |
+| Go       | HTTP                        | [`go-http`](https://github.com/scaffoldly/scaffoldly-examples/tree/go-http)                               |
+| Node     | ConnectRPC (with `fastify`) | [`node-connect`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-connect)                     |
+| Node     | ExpressJS                   | [`node-express`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-express)                     |
+| Node     | Next.js                     | [`node-nextjs`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs)                       |
+| Node     | Next.js (`export` mode)     | [`node-nextjs-export`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-export)         |
+| Node     | Next.js (`standalone` mode) | [`node-nextjs-standalone`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-nextjs-standalone) |
+| Node     | React (with `vite`)         | [`node-react-vite`](https://github.com/scaffoldly/scaffoldly-examples/tree/node-react-vite)               |
+| Python   | Flask                       | [`python-flask`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-flask)                     |
+| Python   | Flask (with `poetry`)       | [`python-flask-poetry`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-flask-poetry)       |
+| Python   | Huggingface (with `flask`)  | [`python-huggingface`](https://github.com/scaffoldly/scaffoldly-examples/tree/python-huggingface)         |
+| Rust     | Axum                        | [`rust-axum`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-axum)                           |
+| Rust     | Hyper                       | [`rust-hyper`](https://github.com/scaffoldly/scaffoldly-examples/tree/rust-hyper)                         |
 
 <!-- Alphbetically Ordered!!! -->
 <!-- ALSO UPDATE ./index.yml for "create-scaffoldly-app" !!! -->
